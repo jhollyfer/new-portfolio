@@ -19,7 +19,7 @@ export const metadata: Metadata = {
         url: "https://jhollyfer.com.br/og-image.png",
         width: 705,
         height: 248,
-        alt: "Site.Set",
+        alt: "Portfolio de Jhollyfer Rodrigues",
       },
     ],
   },

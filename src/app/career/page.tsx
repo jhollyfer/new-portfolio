@@ -1,4 +1,5 @@
 import { ExperienceCard } from "@/templates/career/components/experience-card";
+import { Metadata } from "next";
 
 // Professional experience data
 const professionalExperience = [
@@ -75,6 +76,30 @@ const academicExperience = [
       "Formação técnica em informática com ênfase em programação e redes de computadores.",
   },
 ];
+
+export const metadata: Metadata = {
+  title: "Carreira",
+  description:
+    "Conheça um pouco mais sobre minhas experiências e formações, o primeiro Engenheiro de Software Indígena Tikuna da Amazonia",
+  robots: "index, follow",
+  openGraph: {
+    title: "Carreira",
+    description:
+      "Conheça um pouco mais sobre minhas experiências e formações, o primeiro Engenheiro de Software Indígena Tikuna da Amazonia",
+    url: "https://jhollyfer.com.br/og-image.png",
+    siteName: "Portfolio de Jhollyfer Rodrigues",
+    locale: "pt-BR",
+    type: "website",
+    images: [
+      {
+        url: "https://jhollyfer.com.br/og-image.png",
+        width: 705,
+        height: 248,
+        alt: "Portfolio de Jhollyfer Rodrigues",
+      },
+    ],
+  },
+};
 
 export default function Career() {
   return (
