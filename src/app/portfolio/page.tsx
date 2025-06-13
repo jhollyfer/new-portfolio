@@ -196,7 +196,7 @@ export default async function Portfolio({ searchParams }: Props) {
             <div className="h-10 bg-white/5 rounded-lg animate-pulse mb-8" />
           }
         >
-          <div className="inline-flex w-full items-center justify-center pb-8">
+          <div className="inline-flex w-full items-center justify-center pb-8 gap-2">
             {filters.map((filter) => (
               <FilterButton key={filter} category={filter} />
             ))}
