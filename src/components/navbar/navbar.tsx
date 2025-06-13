@@ -1,4 +1,7 @@
-import { GithubIcon, LinkedinIcon, XIcon } from "lucide-react";
+"use client";
+import { GithubIcon, LinkedinIcon, MenuIcon, XIcon } from "lucide-react";
+import Link from "next/link";
+import React from "react";
 import { ActiveLink } from "../active-link/active-link";
 
 const LINK_LIST = [
@@ -11,7 +14,7 @@ const LINK_LIST = [
 ];
 
 export function Navbar() {
-  const isOpen = false;
+  const [isOpen, setIsOpen] = React.useState(false);
 
   return (
     <header
@@ -38,33 +41,32 @@ export function Navbar() {
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
-            <a
+            <Link
               href="https://github.com/jhollyfer"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white/70 hover:text-white transition-colors"
             >
               <GithubIcon size={20} />
-            </a>
-            <a
+            </Link>
+            <Link
               href="https://linkedin.com/in/jhollyferr"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white/70 hover:text-white transition-colors"
             >
               <LinkedinIcon size={20} />
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
-              // onClick={() => setIsOpen(!isOpen)}
+              onClick={() => setIsOpen((state) => !state)}
               className="text-white/80 hover:text-white"
               aria-label="Toggle menu"
             >
-              <XIcon />
-              {/* {isOpen ? <X size={24} /> : <Menu size={24} />} */}
+              {isOpen ? <XIcon size={24} /> : <MenuIcon size={24} />}
             </button>
           </div>
         </div>
@@ -72,37 +74,36 @@ export function Navbar() {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden bg-portfolio-dark/95 backdrop-blur-lg">
+        <div className="md:hidden bg-neutral-900/95 backdrop-blur-lg">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {LINK_LIST.map((item) => (
               <ActiveLink
+                onClick={() => setIsOpen((state) => !state)}
                 key={item.label}
                 href={item.path}
-                // className={
-                //   "block px-3 py-2 rounded-md text-base font-medium transition-colors"
-                // }
+                className="block px-3 py-2 rounded-md text-base font-medium transition-colors"
               >
                 {item.label}
               </ActiveLink>
             ))}
           </div>
           <div className="flex justify-center space-x-6 py-4 border-t border-white/5">
-            <a
+            <Link
               href="https://github.com/jhollyfer"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white/70 hover:text-white transition-colors"
             >
               <GithubIcon size={20} />
-            </a>
-            <a
+            </Link>
+            <Link
               href="https://linkedin.com/in/jhollyferr"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white/70 hover:text-white transition-colors"
             >
               <LinkedinIcon size={20} />
-            </a>
+            </Link>
           </div>
         </div>
       )}
