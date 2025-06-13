@@ -129,7 +129,7 @@ function ProjectsGridSkeleton() {
   );
 }
 
-export function ProjectsGrid({ projects }: ProjectsGridProps) {
+function ProjectsGrid({ projects }: ProjectsGridProps) {
   if (projects.length === 0) {
     return <EmptyState />;
   }
