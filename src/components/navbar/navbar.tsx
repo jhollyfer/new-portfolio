@@ -7,7 +7,7 @@ const LINK_LIST = [
   { label: "Portfólio", path: "/portfolio" },
   { label: "Skills", path: "/skills" },
   { label: "Carreira", path: "/career" },
-  { label: "Contato", path: "/contato" },
+  { label: "Contato", path: "/contact" },
 ];
 
 export function Navbar() {

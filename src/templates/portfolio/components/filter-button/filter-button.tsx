@@ -34,7 +34,7 @@ export function FilterButton({ category }: Props) {
       onClick={() => handleCategory(category)}
       className={cn(
         "px-4 py-2 rounded-lg text-sm font-medium transition-all bg-white/5 border border-white/10 text-white hover:bg-white/10 cursor-pointer",
-        category === searchCategory && "bg-green-500 text-black"
+        category === searchCategory && "bg-green-400 text-black"
       )}
       type="button"
     >

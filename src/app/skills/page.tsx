@@ -1,4 +1,4 @@
-import { SkillIcon } from "@/templates/skills/skill-icon/skill-icon";
+import { SkillIcon } from "@/templates/skills/components/skill-icon/skill-icon";
 import { Metadata } from "next";
 
 const frontendSkills = [
@@ -166,7 +166,7 @@ export default function Skills() {
       <div className="container mx-auto px-4">
         <div className="mb-16 text-center">
           <h1 className="text-3xl sm:text-4xl font-bold mb-4">
-            Tecnologias e Portfolio - habilidades
+            Tecnologias e habilidades
           </h1>
           <p className="text-white/70 max-w-2xl mx-auto">
             Conheça as tecnologias e ferramentas que utilizo no meu dia a dia de
@@ -177,8 +177,8 @@ export default function Skills() {
         {/* Frontend Skills */}
         <div className="mb-16">
           <div className="flex items-center mb-8">
-            <div className="w-10 h-10 flex items-center justify-center rounded-full bg-green-500/10 mr-4">
-              <div className="text-green-500">&lt;/&gt;</div>
+            <div className="w-10 h-10 flex items-center justify-center rounded-full bg-green-400/10 mr-4">
+              <div className="text-green-400">&lt;/&gt;</div>
             </div>
             <h2 className="text-2xl font-bold">Front-end</h2>
           </div>
@@ -249,8 +249,8 @@ export default function Skills() {
         {/* DevOps Skills */}
         <div>
           <div className="flex items-center mb-8">
-            <div className="w-10 h-10 flex items-center justify-center rounded-full bg-green-500/10 mr-4">
-              <div className="text-green-500">🔄</div>
+            <div className="w-10 h-10 flex items-center justify-center rounded-full bg-green-400/10 mr-4">
+              <div className="text-green-400">🔄</div>
             </div>
             <h2 className="text-2xl font-bold">DevOps</h2>
           </div>

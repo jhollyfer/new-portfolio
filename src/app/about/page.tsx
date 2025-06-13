@@ -39,8 +39,8 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div className="relative">
             <div className="relative mx-auto max-w-md">
-              <div className="absolute -top-5 -left-5 w-24 h-24 border-t-2 border-l-2 border-green-500 opacity-60"></div>
-              <div className="absolute -bottom-5 -right-5 w-24 h-24 border-b-2 border-r-2 border-green-500 opacity-60"></div>
+              <div className="absolute -top-5 -left-5 w-24 h-24 border-t-2 border-l-2 border-green-400 opacity-60"></div>
+              <div className="absolute -bottom-5 -right-5 w-24 h-24 border-b-2 border-r-2 border-green-400 opacity-60"></div>
 
               <div className="rounded-lg overflow-hidden border border-white/10">
                 <Image

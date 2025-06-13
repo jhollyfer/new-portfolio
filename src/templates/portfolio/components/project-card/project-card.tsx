@@ -32,20 +32,20 @@ export function ProjectCard({
         {techs.map((tech, index) => (
           <span
             key={index}
-            className="px-3 py-1 text-xs rounded-full bg-gray-900 border border-white/10 text-white/80"
+            className="px-3 py-1 text-xs rounded-full bg-neutral-900 border border-white/10 text-white/80"
           >
             {tech}
           </span>
         ))}
 
         {status === "online" && (
-          <span className="bg-green-500 text-white font-medium px-3 py-1 text-xs rounded-full">
+          <span className="bg-green-400 text-white font-medium px-3 py-1 text-xs rounded-full">
             Online
           </span>
         )}
       </div>
 
-      <div className="relative h-48 bg-gray-900">
+      <div className="relative h-48 bg-neutral-900">
         <Image
           src={image}
           alt={title}

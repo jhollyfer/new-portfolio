@@ -117,8 +117,8 @@ export default function Career() {
         {/* Professional Experience */}
         <div className="mb-20">
           <div className="flex items-center mb-8">
-            <div className="w-10 h-10 flex items-center justify-center rounded-full bg-green-500/10 mr-4">
-              <div className="text-green-500">💼</div>
+            <div className="w-10 h-10 flex items-center justify-center rounded-full bg-green-400/10 mr-4">
+              <div className="text-green-400">💼</div>
             </div>
             <h2 className="text-2xl font-bold">Área profissional</h2>
           </div>

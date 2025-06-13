@@ -1,8 +1,8 @@
 import {
   FilterButton,
   ProjectCategory,
-} from "@/templates/portfolio/filter-button/filter-button";
-import { ProjectCard } from "@/templates/portfolio/project-card/project-card";
+} from "@/templates/portfolio/components/filter-button/filter-button";
+import { ProjectCard } from "@/templates/portfolio/components/project-card/project-card";
 import { Suspense } from "react";
 
 export interface Project {
