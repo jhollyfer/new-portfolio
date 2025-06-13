@@ -14,7 +14,11 @@ export function Navbar() {
   const isOpen = false;
 
   return (
-    <header className={"fixed top-0 w-full z-50 transition-all duration-300"}>
+    <header
+      className={
+        "fixed top-0 w-full z-50 transition-all duration-300 bg-background"
+      }
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-4">

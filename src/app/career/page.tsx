@@ -78,12 +78,12 @@ const academicExperience = [
 ];
 
 export const metadata: Metadata = {
-  title: "Carreira",
+  title: "Portfolio - Carreira",
   description:
     "Conheça um pouco mais sobre minhas experiências e formações, o primeiro Engenheiro de Software Indígena Tikuna da Amazonia",
   robots: "index, follow",
   openGraph: {
-    title: "Carreira",
+    title: "Portfolio - Carreira",
     description:
       "Conheça um pouco mais sobre minhas experiências e formações, o primeiro Engenheiro de Software Indígena Tikuna da Amazonia",
     url: "https://jhollyfer.com.br/og-image.png",
