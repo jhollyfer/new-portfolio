@@ -2,16 +2,16 @@ import { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Sobre",
+  title: "Jhollyfer | Sobre",
   description:
     "Conheça um pouco mais sobre minha trajetória e experiência, o primeiro Engenheiro de Software Indígena Tikuna da Amazonia",
   robots: "index, follow",
   openGraph: {
-    title: "Sobre",
+    title: "Jhollyfer | Sobre",
     description:
       "Conheça um pouco mais sobre minha trajetória e experiência, o primeiro Engenheiro de Software Indígena Tikuna da Amazonia",
     url: "https://jhollyfer.com.br/og-image.png",
-    siteName: "Portfolio de Jhollyfer Rodrigues",
+    siteName: "jhollyfer.com.br/about",
     locale: "pt-BR",
     type: "website",
     images: [
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
         url: "https://jhollyfer.com.br/og-image.png",
         width: 705,
         height: 248,
-        alt: "Portfolio de Jhollyfer Rodrigues",
+        alt: "Jhollyfer | Sobre",
       },
     ],
   },

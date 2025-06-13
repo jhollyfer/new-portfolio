@@ -216,10 +216,10 @@ export async function generateMetadata({ searchParams }: Props) {
   const category = params.category ?? "all";
 
   const titles = {
-    all: "Portfólio",
-    frontend: "Portfólio - Front-end",
-    backend: "Portfólio - Back-end",
-    mobile: "Portfólio - Mobile",
+    all: "Jhollyfer | Portfólio",
+    frontend: "Jhollyfer | Portfólio Front-end",
+    backend: "Jhollyfer | Portfólio Back-end",
+    mobile: "Jhollyfer | Portfólio Mobile",
   };
 
   const descriptions = {
@@ -244,7 +244,7 @@ export async function generateMetadata({ searchParams }: Props) {
       title,
       description,
       url: "https://jhollyfer.com.br/og-image.png",
-      siteName: "Portfolio de Jhollyfer Rodrigues",
+      siteName: "https://jhollyfer.com.br/portfolio",
       locale: "pt-BR",
       type: "website",
       images: [
@@ -252,7 +252,7 @@ export async function generateMetadata({ searchParams }: Props) {
           url: "https://jhollyfer.com.br/og-image.png",
           width: 705,
           height: 248,
-          alt: "Portfolio de Jhollyfer Rodrigues",
+          alt: "Jhollyfer | Portfólio",
         },
       ],
     },

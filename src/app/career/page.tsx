@@ -78,16 +78,16 @@ const academicExperience = [
 ];
 
 export const metadata: Metadata = {
-  title: "Portfolio - Carreira",
+  title: "Jhollyfer | Carreira",
   description:
     "Conheça um pouco mais sobre minhas experiências e formações, o primeiro Engenheiro de Software Indígena Tikuna da Amazonia",
   robots: "index, follow",
   openGraph: {
-    title: "Portfolio - Carreira",
+    title: "Jhollyfer | Carreira",
     description:
       "Conheça um pouco mais sobre minhas experiências e formações, o primeiro Engenheiro de Software Indígena Tikuna da Amazonia",
     url: "https://jhollyfer.com.br/og-image.png",
-    siteName: "Portfolio de Jhollyfer Rodrigues",
+    siteName: "https://jhollyfer.com.br/career",
     locale: "pt-BR",
     type: "website",
     images: [
@@ -95,7 +95,7 @@ export const metadata: Metadata = {
         url: "https://jhollyfer.com.br/og-image.png",
         width: 705,
         height: 248,
-        alt: "Portfolio de Jhollyfer Rodrigues",
+        alt: "Jhollyfer | Carreira",
       },
     ],
   },

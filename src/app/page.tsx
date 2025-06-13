@@ -5,16 +5,16 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Portfolio de Jhollyfer Rodrigues",
+  title: "Jhollyfer | Inicio",
   description:
     "Portfolio de Jhollyfer Rodrigues, o primeiro Engenheiro de Software Indígena Tikuna da Amazonia",
   robots: "index, follow",
   openGraph: {
-    title: "Portfolio de Jhollyfer Rodrigues",
+    title: "Jhollyfer | Inicio",
     description:
       "Portfolio de Jhollyfer Rodrigues, o primeiro Engenheiro de Software Indígena Tikuna da Amazonia",
     url: "https://jhollyfer.com.br/og-image.png",
-    siteName: "Portfolio de Jhollyfer Rodrigues",
+    siteName: "jhollyfer.com.br",
     locale: "pt-BR",
     type: "website",
     images: [
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
         url: "https://jhollyfer.com.br/og-image.png",
         width: 705,
         height: 248,
-        alt: "Portfolio de Jhollyfer Rodrigues",
+        alt: "Jhollyfer | Inicio",
       },
     ],
   },

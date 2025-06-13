@@ -137,16 +137,16 @@ const devopsSkills = [
 ];
 
 export const metadata: Metadata = {
-  title: "Portfolio - Habilidades",
+  title: "Jhollyfer | Habilidades e Tecnologias",
   description:
     "Conheça um pouco mais sobre minhas habilidades e tecnologias que utilizo, o primeiro Engenheiro de Software Indígena Tikuna da Amazonia",
   robots: "index, follow",
   openGraph: {
-    title: "Portfolio - Habilidades",
+    title: "Jhollyfer | Habilidades e Tecnologias",
     description:
       "Conheça um pouco mais sobre minhas habilidades e tecnologias que utilizo, o primeiro Engenheiro de Software Indígena Tikuna da Amazonia",
     url: "https://jhollyfer.com.br/og-image.png",
-    siteName: "Portfolio de Jhollyfer Rodrigues",
+    siteName: "https://jhollyfer.com.br/skills",
     locale: "pt-BR",
     type: "website",
     images: [
@@ -154,7 +154,7 @@ export const metadata: Metadata = {
         url: "https://jhollyfer.com.br/og-image.png",
         width: 705,
         height: 248,
-        alt: "Portfolio de Jhollyfer Rodrigues",
+        alt: "Jhollyfer | Habilidades e Tecnologias",
       },
     ],
   },

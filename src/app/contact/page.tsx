@@ -1,5 +1,30 @@
 import { ContactButton } from "@/templates/contact/components/contact-button/contact-button";
 import { MailIcon, MapPinIcon, SendIcon, SmartphoneIcon } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Jhollyfer | Contato",
+  description:
+    "Entre em contato com o primeiro Engenheiro de Software Indígena Tikuna da Amazonia",
+  robots: "index, follow",
+  openGraph: {
+    title: "Jhollyfer | Contato",
+    description:
+      "Entre em contato com o primeiro Engenheiro de Software Indígena Tikuna da Amazonia",
+    url: "https://jhollyfer.com.br/og-image.png",
+    siteName: "https://jhollyfer.com.br/contact",
+    locale: "pt-BR",
+    type: "website",
+    images: [
+      {
+        url: "https://jhollyfer.com.br/og-image.png",
+        width: 705,
+        height: 248,
+        alt: "Jhollyfer | Contato",
+      },
+    ],
+  },
+};
 
 export default function Contact() {
   return (
