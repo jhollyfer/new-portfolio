@@ -62,7 +62,7 @@ const professionalExperience = [
 // Academic experience data
 const academicExperience = [
   {
-    title: "BACHARELADO EM ENGENHARIA DE SOFTWARE",
+    title: "Bacharelado em Engenheiro de Software",
     company: "Universidade Federal do Amazonas",
     period: "2017 - 2022",
     description:
