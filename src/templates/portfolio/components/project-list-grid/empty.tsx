@@ -16,10 +16,10 @@ export function Empty() {
           />
         </svg>
       </div>
-      <h3 className="text-xl font-medium text-white mb-2">
+      <h3 className="text-xl font-medium text-foreground mb-2">
         Nenhum projeto encontrado
       </h3>
-      <p className="text-white/70 max-w-md mx-auto">
+      <p className="text-muted-foreground max-w-md mx-auto">
         Não encontramos projetos nesta categoria. Tente filtrar por uma
         categoria diferente.
       </p>

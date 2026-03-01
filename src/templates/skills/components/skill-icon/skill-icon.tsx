@@ -7,17 +7,19 @@ interface Props {
 
 export function SkillIcon({ name, icon }: Props) {
   return (
-    <div className="flex flex-col items-center">
-      <div className="w-14 h-14 flex items-center justify-center rounded-lg bg-white/5 border border-white/10 hover:border-green-400/30 transition-all duration-300 mb-2 group">
+    <div className="group flex flex-col items-center gap-2">
+      <div className="size-16 flex items-center justify-center rounded-2xl bg-white/[0.04] border border-white/[0.08] group-hover:border-green-400/30 group-hover:bg-white/[0.06] transition-all duration-200">
         <Image
           src={icon}
           alt={name}
-          className="w-8 h-8 transition-transform duration-300 group-hover:scale-110"
-          width={32}
-          height={32}
+          className="size-7"
+          width={28}
+          height={28}
         />
       </div>
-      <span className="text-xs text-white/70">{name}</span>
+      <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors duration-200">
+        {name}
+      </span>
     </div>
   );
 }

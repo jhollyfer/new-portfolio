@@ -5,33 +5,33 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-white/5 py-8 mt-20">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-4 md:mb-0">
-            <p className="text-white/50 text-sm">
-              © {currentYear} Jhollyfer Rodrigues • Todos os direitos reservados
-            </p>
-          </div>
+    <footer className="border-t border-white/[0.06] py-10 mt-20">
+      <div className="section-container">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-sm text-muted-foreground">
+            &copy; {currentYear} Jhollyfer Rodrigues
+          </p>
 
-          <div className="flex space-x-6">
+          <nav aria-label="Redes sociais" className="flex items-center gap-1">
             <Link
               href="https://github.com/jhollyfer"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/70 hover:text-white transition-colors"
+              className="size-9 flex items-center justify-center rounded-md text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer"
+              aria-label="GitHub"
             >
-              <GithubIcon size={20} />
+              <GithubIcon size={18} />
             </Link>
             <Link
               href="https://linkedin.com/in/jhollyferr"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/70 hover:text-white transition-colors"
+              className="size-9 flex items-center justify-center rounded-md text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer"
+              aria-label="LinkedIn"
             >
-              <LinkedinIcon size={20} />
+              <LinkedinIcon size={18} />
             </Link>
-          </div>
+          </nav>
         </div>
       </div>
     </footer>

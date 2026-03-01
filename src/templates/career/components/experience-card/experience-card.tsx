@@ -18,38 +18,41 @@ export function ExperienceCard({
   variant = "default",
 }: Props) {
   return (
-    <div
+    <article
       className={cn(
-        "border border-white/10 rounded-xl backdrop-blur-sm bg-white/5 card-border p-5 transition-all duration-300 hover:border-opacity-30 h-full",
-        variant === "accent" ? "border-green-400/30" : "border-white/10"
+        "card-border p-5",
+        variant === "accent" && "border-green-400/20 bg-green-400/[0.02]"
       )}
     >
-      <h3 className="text-lg font-bold mb-1">{title}</h3>
-      <h4 className="text-base text-white/70 mb-3">{company}</h4>
-
-      <div className="flex items-center justify-between mb-4">
-        <span className="text-sm text-white/50">{period}</span>
+      <div className="flex items-start justify-between gap-3 mb-3">
+        <div>
+          <h3 className="font-semibold mb-0.5">{title}</h3>
+          <h4 className="text-sm text-muted-foreground">{company}</h4>
+        </div>
         {variant === "accent" && (
-          <span className="text-xs px-2 py-0.5 rounded-full bg-green-400/30 text-green-400">
+          <span className="shrink-0 text-xs px-2 py-0.5 rounded-full bg-green-400/15 text-green-400 font-medium">
             Atual
           </span>
         )}
       </div>
 
-      <p className="text-sm text-white/80 mb-4">{description}</p>
+      <time className="inline-block text-xs text-muted-foreground mb-3">
+        {period}
+      </time>
+
+      <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+        {description}
+      </p>
 
       {techs && techs.length > 0 && (
-        <div className="flex flex-wrap gap-2 mt-4">
-          {techs.map((tech, index) => (
-            <span
-              key={index}
-              className="px-3 py-1 text-xs rounded-full bg-neutral-950 border border-white/10 text-white/80"
-            >
+        <div className="flex flex-wrap gap-1.5">
+          {techs.map((tech) => (
+            <span key={tech} className="tech-badge">
               {tech}
             </span>
           ))}
         </div>
       )}
-    </div>
+    </article>
   );
 }

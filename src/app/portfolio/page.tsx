@@ -21,21 +21,20 @@ export default async function Portfolio({ searchParams }: Props) {
 
   return (
     <div className="pt-24 pb-16">
-      <div className="container mx-auto px-4">
-        <div className="mb-16 text-center">
-          <h1 className="text-3xl sm:text-4xl font-bold mb-4">Portfólio</h1>
-          <p className="text-white/70 max-w-2xl mx-auto">
-            Conheça alguns dos projetos que desenvolvi ao longo da minha
-            carreira
+      <div className="section-container">
+        <div className="page-header">
+          <h1>Portfolio</h1>
+          <p>
+            Alguns dos projetos que desenvolvi ao longo da minha carreira
           </p>
         </div>
 
         <Suspense
           fallback={
-            <div className="h-10 bg-white/5 rounded-lg animate-pulse mb-8" />
+            <div className="h-10 bg-white/[0.04] rounded-lg animate-pulse mb-8" />
           }
         >
-          <div className="inline-flex w-full items-center justify-center pb-8 gap-2">
+          <div className="flex items-center justify-start gap-2 pb-8">
             {filters.map((filter) => (
               <FilterButton key={filter} category={filter} />
             ))}
@@ -55,20 +54,20 @@ export async function generateMetadata({ searchParams }: Props) {
   const category = params.category ?? "all";
 
   const titles = {
-    all: "Jhollyfer | Portfólio",
-    frontend: "Jhollyfer | Portfólio Front-end",
-    backend: "Jhollyfer | Portfólio Back-end",
-    mobile: "Jhollyfer | Portfólio Mobile",
+    all: "Jhollyfer | Portfolio",
+    frontend: "Jhollyfer | Portfolio Front-end",
+    backend: "Jhollyfer | Portfolio Back-end",
+    mobile: "Jhollyfer | Portfolio Mobile",
   };
 
   const descriptions = {
-    all: "Conheça alguns dos projetos que desenvolvi ao longo da minha carreira",
+    all: "Conheca alguns dos projetos que desenvolvi ao longo da minha carreira",
     frontend:
       "Projetos de Front-end desenvolvidos com React, Next.js e outras tecnologias modernas",
     backend:
-      "APIs e sistemas backend desenvolvidos com Node.js, databases e arquiteturas escaláveis",
+      "APIs e sistemas backend desenvolvidos com Node.js, databases e arquiteturas escalaveis",
     mobile:
-      "Aplicativos mobile desenvolvidos com React Native, Flutter e tecnologias híbridas",
+      "Aplicativos mobile desenvolvidos com React Native, Flutter e tecnologias hibridas",
   };
 
   const title = titles[category as keyof typeof titles] || titles.all;
@@ -83,7 +82,7 @@ export async function generateMetadata({ searchParams }: Props) {
       title,
       description,
       url: "https://jhollyfer.com.br/og-image.png",
-      siteName: "https://jhollyfer.com.br/portfolio",
+      siteName: "jhollyfer.com.br",
       locale: "pt-BR",
       type: "website",
       images: [
@@ -91,7 +90,7 @@ export async function generateMetadata({ searchParams }: Props) {
           url: "https://jhollyfer.com.br/og-image.png",
           width: 705,
           height: 248,
-          alt: "Jhollyfer | Portfólio",
+          alt: "Jhollyfer | Portfolio",
         },
       ],
     },

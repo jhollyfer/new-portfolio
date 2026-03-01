@@ -1,14 +1,14 @@
 import { ExperienceCard } from "@/templates/career/components/experience-card";
+import { BriefcaseIcon, GraduationCapIcon } from "lucide-react";
 import { Metadata } from "next";
 
-// Professional experience data
 const professionalExperience = [
   {
     title: "Desenvolvedor Full Stack - Pleno",
-    company: "Fundação RTVE/UFG",
+    company: "Fundacao RTVE/UFG",
     period: "Jan/2025 - Atualmente",
     description:
-      "Desenvolvimento de aplicação de gerenciamento de base de dados, capaz de criar múltiplas tabelas e estabelecer relações entre os dados de forma dinâmica e eficiente",
+      "Desenvolvimento de aplicacao de gerenciamento de base de dados, capaz de criar multiplas tabelas e estabelecer relacoes entre os dados de forma dinamica e eficiente",
     techs: ["React JS", "TypeScript", "Node.js", "Fastify", "MongoDB"],
     variant: "accent" as const,
   },
@@ -17,7 +17,7 @@ const professionalExperience = [
     company: "Clicksoft",
     period: "Setembro/2024 - Dezembro/2024",
     description:
-      "Coordenação de equipes de desenvolvimento, garantindo entregas e alinhadas às melhores práticas do mercado. Definição de arquiteturas de sistemas escaláveis e resilientes para projetos estratégicos de múltiplos projetos",
+      "Coordenacao de equipes de desenvolvimento, garantindo entregas alinhadas as melhores praticas do mercado. Definicao de arquiteturas de sistemas escalaveis e resilientes para projetos estrategicos",
     techs: ["Node.js", "AdonisJS", "TypeScript", "RESTful API"],
     variant: "default" as const,
   },
@@ -26,68 +26,74 @@ const professionalExperience = [
     company: "Clicksoft",
     period: "Junho/2023 - Agosto/2024",
     description:
-      "Desenvolvimento de sistemas completos para clientes, utilizando React, Node.js e MongoDB. Integração com APIs de pagamento e implementação de autenticação JWT.",
+      "Desenvolvimento de sistemas completos para clientes, utilizando React, Node.js e MongoDB. Integracao com APIs de pagamento e implementacao de autenticacao JWT.",
     techs: ["React", "Node.js", "MongoDB", "Express"],
     variant: "default" as const,
   },
   {
-    title: "Desenvolvedor Full Stack - Júnior",
+    title: "Desenvolvedor Full Stack - Junior",
     company: "Clicksoft",
-    period: "Março/2022 - Maio/2023",
+    period: "Marco/2022 - Maio/2023",
     description:
-      "Desenvolvimento de sistemas completos para clientes, utilizando React, Node.js e MongoDB. Integração com APIs de pagamento e implementação de autenticação JWT.",
+      "Desenvolvimento de sistemas completos para clientes, utilizando React, Node.js e MongoDB. Integracao com APIs de pagamento e implementacao de autenticacao JWT.",
     techs: ["React", "Node.js", "MongoDB", "Express"],
     variant: "default" as const,
   },
   {
-    title: "Consultor Fluig - Júnior",
+    title: "Consultor Fluig - Junior",
     company: "Grupo IV2",
-    period: "Março/2021 - Fevereiro/2022",
+    period: "Marco/2021 - Fevereiro/2022",
     description:
-      "Customização e implementação de soluções na plataforma Fluig, otimizando processos de gestão empresarial. Automação de fluxos de trabalho e integrações entre sistemas ERP e Fluig",
+      "Customizacao e implementacao de solucoes na plataforma Fluig, otimizando processos de gestao empresarial. Automacao de fluxos de trabalho e integracoes entre sistemas ERP e Fluig",
     techs: ["Java", "Javascript"],
     variant: "default" as const,
   },
   {
     title: "Programador - Pesquisador",
     company: "Instituto Federal do Amazonas",
-    period: "Março/2021 - Fevereiro/2022",
+    period: "Marco/2021 - Fevereiro/2022",
     description:
-      "Pesquisas de soluções tecnológicas para projetos acadêmicos e pesquisas voltadas para inovação e impacto social. Estudos sobre tecnologias emergentes aplicadas a educação e inclusão digital na região amazônica.",
+      "Pesquisas de solucoes tecnologicas para projetos academicos e pesquisas voltadas para inovacao e impacto social na regiao amazonica.",
     techs: ["Java", "Javascript", "Pascal", "Lazarus", "Delphi"],
     variant: "default" as const,
   },
 ];
 
-// Academic experience data
 const academicExperience = [
   {
-    title: "Bacharelado em Engenheiro de Software",
+    title: "Especialista em Desenvolvimento Full Stack",
+    company: "Universidade Federal do Amazonas - Web Academy",
+    period: "2025 - 2026",
+    description:
+      "Especializacao em desenvolvimento web full stack pelo programa Web Academy (parceria UFAM/Motorola), com enfase em aplicacoes modernas, inteligencia artificial e ciberseguranca.",
+  },
+  {
+    title: "Bacharelado em Engenharia de Software",
     company: "Universidade Federal do Amazonas",
     period: "2017 - 2022",
     description:
-      "Formação acadêmica em engenharia de software com enfase em desenvolvimento de software, algoritmos e estrutura de dados.",
+      "Formacao academica em engenharia de software com enfase em desenvolvimento de software, algoritmos e estrutura de dados.",
   },
   {
-    title: "Técnico Informática",
+    title: "Tecnico em Informatica",
     company: "Instituto Federal do Amazonas",
     period: "2014 - 2016",
     description:
-      "Formação técnica em informática com ênfase em programação e redes de computadores.",
+      "Formacao tecnica em informatica com enfase em programacao e redes de computadores.",
   },
 ];
 
 export const metadata: Metadata = {
   title: "Jhollyfer | Carreira",
   description:
-    "Conheça um pouco mais sobre minhas experiências e formações, o primeiro Engenheiro de Software Indígena Tikuna da Amazonia",
+    "Conheca um pouco mais sobre minhas experiencias e formacoes, o primeiro Engenheiro de Software Indigena Tikuna da Amazonia",
   robots: "index, follow",
   openGraph: {
     title: "Jhollyfer | Carreira",
     description:
-      "Conheça um pouco mais sobre minhas experiências e formações, o primeiro Engenheiro de Software Indígena Tikuna da Amazonia",
+      "Conheca um pouco mais sobre minhas experiencias e formacoes, o primeiro Engenheiro de Software Indigena Tikuna da Amazonia",
     url: "https://jhollyfer.com.br/og-image.png",
-    siteName: "https://jhollyfer.com.br/career",
+    siteName: "jhollyfer.com.br",
     locale: "pt-BR",
     type: "website",
     images: [
@@ -104,51 +110,43 @@ export const metadata: Metadata = {
 export default function Career() {
   return (
     <div className="pt-24 pb-16">
-      <div className="container mx-auto px-4">
-        <div className="mb-16 text-center">
-          <h1 className="text-3xl sm:text-4xl font-bold mb-4">
-            Trajetória até aqui
-          </h1>
-          <p className="text-white/70 max-w-2xl mx-auto">
-            Minha experiência profissional e formação acadêmica
-          </p>
+      <div className="section-container">
+        <div className="page-header">
+          <h1>Trajetoria ate aqui</h1>
+          <p>Minha experiencia profissional e formacao academica</p>
         </div>
 
         {/* Professional Experience */}
-        <div className="mb-20">
-          <div className="flex items-center mb-8">
-            <div className="w-10 h-10 flex items-center justify-center rounded-full bg-green-400/10 mr-4">
-              <div className="text-green-400">💼</div>
+        <section className="mb-20" aria-labelledby="heading-professional">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="section-badge bg-green-400/10 text-green-400">
+              <BriefcaseIcon size={18} />
             </div>
-            <h2 className="text-2xl font-bold">Área profissional</h2>
+            <h2 id="heading-professional" className="text-xl font-semibold">Area Profissional</h2>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="space-y-4">
             {professionalExperience.map((experience, index) => (
-              <div key={index}>
-                <ExperienceCard {...experience} />
-              </div>
+              <ExperienceCard key={index} {...experience} />
             ))}
           </div>
-        </div>
+        </section>
 
         {/* Academic Experience */}
-        <div>
-          <div className="flex items-center mb-8">
-            <div className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-500/10 mr-4">
-              <div className="text-blue-500">🎓</div>
+        <section aria-labelledby="heading-academic">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="section-badge bg-blue-400/10 text-blue-400">
+              <GraduationCapIcon size={18} />
             </div>
-            <h2 className="text-2xl font-bold">Acadêmica</h2>
+            <h2 id="heading-academic" className="text-xl font-semibold">Academica</h2>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="space-y-4">
             {academicExperience.map((experience, index) => (
-              <div key={index}>
-                <ExperienceCard {...experience} />
-              </div>
+              <ExperienceCard key={index} {...experience} />
             ))}
           </div>
-        </div>
+        </section>
       </div>
     </div>
   );
