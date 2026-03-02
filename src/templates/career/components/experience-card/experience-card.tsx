@@ -7,6 +7,7 @@ interface Props {
   description: string;
   techs?: string[];
   variant?: "default" | "accent";
+  currentLabel?: string;
 }
 
 export function ExperienceCard({
@@ -16,12 +17,13 @@ export function ExperienceCard({
   description,
   techs,
   variant = "default",
+  currentLabel,
 }: Props) {
   return (
     <article
       className={cn(
         "card-border p-5",
-        variant === "accent" && "border-green-400/20 bg-green-400/[0.02]"
+        variant === "accent" && "border-l-2 border-l-green-400 border-green-400/20 bg-green-400/[0.02]"
       )}
     >
       <div className="flex items-start justify-between gap-3 mb-3">
@@ -29,16 +31,17 @@ export function ExperienceCard({
           <h3 className="font-semibold mb-0.5">{title}</h3>
           <h4 className="text-sm text-muted-foreground">{company}</h4>
         </div>
-        {variant === "accent" && (
-          <span className="shrink-0 text-xs px-2 py-0.5 rounded-full bg-green-400/15 text-green-400 font-medium">
-            Atual
-          </span>
-        )}
+        <div className="flex items-center gap-2 shrink-0">
+          <time className="text-xs text-muted-foreground">
+            {period}
+          </time>
+          {variant === "accent" && (
+            <span className="text-xs px-2 py-0.5 rounded-full bg-green-400/15 text-green-400 font-medium">
+              {currentLabel ?? "Atual"}
+            </span>
+          )}
+        </div>
       </div>
-
-      <time className="inline-block text-xs text-muted-foreground mb-3">
-        {period}
-      </time>
 
       <p className="text-sm text-muted-foreground leading-relaxed mb-4">
         {description}

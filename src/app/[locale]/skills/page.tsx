@@ -6,12 +6,15 @@ import {
   ServerIcon,
   SmartphoneIcon,
 } from "lucide-react";
-import { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+
+interface Props {
+  params: Promise<{ locale: string }>;
+}
 
 const skillSections = [
   {
     id: "frontend",
-    title: "Front-end",
     icon: <CodeIcon size={18} />,
     color: "text-green-400",
     bgColor: "bg-green-400/10",
@@ -28,7 +31,6 @@ const skillSections = [
   },
   {
     id: "backend",
-    title: "Back-end",
     icon: <ServerIcon size={18} />,
     color: "text-blue-400",
     bgColor: "bg-blue-400/10",
@@ -43,7 +45,6 @@ const skillSections = [
   },
   {
     id: "database",
-    title: "Banco de Dados",
     icon: <DatabaseIcon size={18} />,
     color: "text-purple-400",
     bgColor: "bg-purple-400/10",
@@ -56,7 +57,6 @@ const skillSections = [
   },
   {
     id: "mobile",
-    title: "Mobile",
     icon: <SmartphoneIcon size={18} />,
     color: "text-pink-400",
     bgColor: "bg-pink-400/10",
@@ -67,7 +67,6 @@ const skillSections = [
   },
   {
     id: "devops",
-    title: "DevOps",
     icon: <GitBranchIcon size={18} />,
     color: "text-orange-400",
     bgColor: "bg-orange-400/10",
@@ -80,40 +79,44 @@ const skillSections = [
   },
 ];
 
-export const metadata: Metadata = {
-  title: "Jhollyfer | Habilidades e Tecnologias",
-  description:
-    "Conheca um pouco mais sobre minhas habilidades e tecnologias que utilizo, o primeiro Engenheiro de Software Indigena Tikuna da Amazonia",
-  robots: "index, follow",
-  openGraph: {
-    title: "Jhollyfer | Habilidades e Tecnologias",
-    description:
-      "Conheca um pouco mais sobre minhas habilidades e tecnologias que utilizo, o primeiro Engenheiro de Software Indigena Tikuna da Amazonia",
-    url: "https://jhollyfer.com.br/og-image.png",
-    siteName: "jhollyfer.com.br",
-    locale: "pt-BR",
-    type: "website",
-    images: [
-      {
-        url: "https://jhollyfer.com.br/og-image.png",
-        width: 705,
-        height: 248,
-        alt: "Jhollyfer | Habilidades e Tecnologias",
-      },
-    ],
-  },
-};
+export async function generateMetadata({ params }: Props) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "metadata.skills" });
 
-export default function Skills() {
+  return {
+    title: t("title"),
+    description: t("description"),
+    robots: "index, follow",
+    openGraph: {
+      title: t("title"),
+      description: t("description"),
+      url: "https://jhollyfer.com.br/og-image.png",
+      siteName: "jhollyfer.com.br",
+      locale,
+      type: "website",
+      images: [
+        {
+          url: "https://jhollyfer.com.br/og-image.png",
+          width: 705,
+          height: 248,
+          alt: t("title"),
+        },
+      ],
+    },
+  };
+}
+
+export default async function Skills({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("skills");
+
   return (
-    <div className="pt-24 pb-16">
+    <div className="pt-32 pb-24">
       <div className="section-container">
         <div className="page-header">
-          <h1>Tecnologias e Habilidades</h1>
-          <p>
-            Ferramentas e tecnologias que utilizo no dia a dia de
-            desenvolvimento
-          </p>
+          <h1>{t("pageTitle")}</h1>
+          <p>{t("pageDescription")}</p>
         </div>
 
         <div className="space-y-20">
@@ -124,7 +127,7 @@ export default function Skills() {
                   {section.icon}
                 </div>
                 <h2 id={`heading-${section.id}`} className="text-xl font-semibold">
-                  {section.title}
+                  {t(`sections.${section.id}`)}
                 </h2>
               </div>
 

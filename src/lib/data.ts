@@ -5,7 +5,7 @@ export const PROJECT_LIST: Project[] = [
     id: "1",
     title: "ADACAIBS",
     description:
-      "Site da Associacao de Desenvolvimento Artistico e Cultural da Aldeia Indigena de Belem do Solimoes. Preservacao da cultura Tikuna e conservacao da biodiversidade.",
+      "Site da Associação de Desenvolvimento Artístico e Cultural da Aldeia Indígena de Belem do Solimões. Preservação da cultura Tikuna e conservação da biodiversidade.",
     image: "/images/adacaibs.webp",
     techs: [
       "React",
@@ -40,7 +40,7 @@ export const PROJECT_LIST: Project[] = [
     id: "3",
     title: "Manganga",
     description:
-      "Site oficial do Boi Bumba Manganga, celebrando mais de 30 anos de tradicao cultural amazonica em Benjamin Constant, o maior festival folclorico do Alto Solimoes.",
+      "Site oficial do Boi Bumba Manganga, celebrando mais de 30 anos de tradição cultural amazônica em Benjamin Constant, o maior festival folclórico do Alto Solimões.",
     image: "/images/manganga.webp",
     techs: [
       "React",

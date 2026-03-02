@@ -12,6 +12,8 @@ interface Props {
   website?: string;
 }
 
+const MAX_VISIBLE_TECHS = 4;
+
 export function ProjectCard({
   title,
   description,
@@ -21,27 +23,48 @@ export function ProjectCard({
   github,
   website,
 }: Props) {
+  const visibleTechs = techs.slice(0, MAX_VISIBLE_TECHS);
+  const remainingCount = techs.length - MAX_VISIBLE_TECHS;
+
   return (
-    <article className="card-border overflow-hidden">
-      <div className="relative h-52 bg-muted/50">
+    <article className="group card-border overflow-hidden flex flex-col">
+      <div className="relative h-56 bg-muted/50 overflow-hidden">
         <Image
           src={image}
           alt={title}
-          className="object-cover object-top"
+          className="object-cover object-top transition-transform duration-300 group-hover:scale-105"
           loading="lazy"
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
+        {status === "online" && (
+          <span className="absolute top-3 right-3 px-2.5 py-0.5 text-xs rounded-full bg-black/60 backdrop-blur-sm text-green-400 font-medium">
+            Online
+          </span>
+        )}
       </div>
 
-      <div className="p-6">
-        <h3 className="font-semibold mb-1.5">{title}</h3>
+      <div className="p-6 flex flex-col flex-1">
+        <h3 className="text-lg font-semibold tracking-tight mb-1.5">{title}</h3>
         <p className="text-sm text-muted-foreground line-clamp-2 mb-4 leading-relaxed text-balance">
           {description}
         </p>
 
+        <div className="flex flex-wrap gap-1.5 mb-4">
+          {visibleTechs.map((tech, index) => (
+            <span key={index} className="tech-badge">
+              {tech}
+            </span>
+          ))}
+          {remainingCount > 0 && (
+            <span className="tech-badge">
+              +{remainingCount}
+            </span>
+          )}
+        </div>
+
         {(github || website) && (
-          <div className="flex items-center gap-3 mb-4">
+          <div className="flex items-center gap-3 mt-auto border-t border-white/[0.06] pt-4">
             {github && (
               <Link
                 href={github}
@@ -68,19 +91,6 @@ export function ProjectCard({
             )}
           </div>
         )}
-
-        <div className="flex flex-wrap gap-1.5">
-          {techs.map((tech, index) => (
-            <span key={index} className="tech-badge">
-              {tech}
-            </span>
-          ))}
-          {status === "online" && (
-            <span className="px-2.5 py-0.5 text-xs rounded-full bg-green-400/15 text-green-400 font-medium">
-              Online
-            </span>
-          )}
-        </div>
       </div>
     </article>
   );

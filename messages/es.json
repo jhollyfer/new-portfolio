@@ -1,0 +1,200 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "about": "Acerca de",
+    "portfolio": "Portafolio",
+    "skills": "Habilidades",
+    "career": "Carrera",
+    "contact": "Contacto",
+    "openMenu": "Abrir menu",
+    "closeMenu": "Cerrar menu",
+    "skipToContent": "Saltar al contenido"
+  },
+  "hero": {
+    "available": "Disponible para proyectos",
+    "role": "Ingeniero de Software",
+    "description": "Creando soluciones digitales que conectan tecnologia, cultura e impacto social desde la Amazonia.",
+    "downloadCV": "Descargar CV",
+    "letsChat": "Hablemos!"
+  },
+  "home": {
+    "categories": {
+      "frontend": {
+        "title": "Front-end",
+        "description": "Interfaces modernas y responsivas enfocadas en la experiencia del usuario."
+      },
+      "backend": {
+        "title": "Back-end",
+        "description": "APIs y servicios robustos, escalables y de alto rendimiento."
+      },
+      "works": {
+        "title": "Trabajos",
+        "description": "Proyectos para clientes y empresas enfocados en calidad y resultados."
+      }
+    },
+    "featuredProjects": "Proyectos destacados",
+    "viewAll": "Ver todos",
+    "cta": {
+      "title": "Hablemos?",
+      "description": "Estoy disponible para nuevos proyectos y oportunidades. Contactame para que conversemos sobre como puedo ayudar.",
+      "button": "Hablemos!"
+    }
+  },
+  "about": {
+    "pageTitle": "Acerca de",
+    "pageDescription": "Conoce un poco mas sobre mi trayectoria y experiencia",
+    "name": "Marcos Jhollyfer Rodrigues",
+    "role": "Ingeniero de Software",
+    "greeting": "Hola, soy Marcos!",
+    "bio1": "El primer Ingeniero de Software Indigena Tikuna de la Amazonia. Naci y creci en la region amazonica, y llevo esa vivencia unica a cada proyecto que desarrollo, uniendo tecnologia e impacto social.",
+    "bio2": "Ingeniero de Software con mas de 5 anos de experiencia en el desarrollo de aplicaciones web, mobile y backend. Mi pasion por la programacion comenzo en mi adolescencia y desde entonces he perfeccionado mis conocimientos y habilidades tecnicas.",
+    "bio3": "Actualmente, trabajo como desarrollador full-stack, creando soluciones completas desde el frontend hasta el backend. Tengo experiencia con diversas tecnologias y frameworks modernos, siempre buscando entregar productos de alta calidad.",
+    "bio4": "Mi objetivo principal es crear soluciones escalables, bien documentadas y de alta calidad. Me gusta trabajar en equipo y siempre estoy en busca de nuevos desafios y oportunidades para aprender y crecer profesionalmente.",
+    "mainTech": "Tecnologias principales"
+  },
+  "portfolio": {
+    "pageTitle": "Portafolio",
+    "pageDescription": "Algunos de los proyectos que desarrolle a lo largo de mi carrera",
+    "filters": {
+      "all": "Todos",
+      "frontend": "Front-end",
+      "backend": "Back-end",
+      "mobile": "Mobile"
+    },
+    "empty": {
+      "title": "Ningun proyecto encontrado",
+      "description": "No encontramos proyectos en esta categoria. Intenta filtrar por una categoria diferente."
+    },
+    "status": {
+      "online": "Online",
+      "offline": "Offline"
+    },
+    "viewProject": "Ver proyecto",
+    "viewCode": "Codigo"
+  },
+  "skills": {
+    "pageTitle": "Tecnologias y Habilidades",
+    "pageDescription": "Herramientas y tecnologias que utilizo en mi dia a dia de desarrollo",
+    "sections": {
+      "frontend": "Front-end",
+      "backend": "Back-end",
+      "database": "Base de Datos",
+      "mobile": "Mobile",
+      "devops": "DevOps"
+    }
+  },
+  "career": {
+    "pageTitle": "Mi trayectoria hasta aqui",
+    "pageDescription": "Mi experiencia profesional y formacion academica",
+    "professional": "Area Profesional",
+    "academic": "Academica",
+    "current": "Actual",
+    "experiences": {
+      "exp1": {
+        "title": "Desarrollador Full Stack - Nivel medio",
+        "company": "Fundacion RTVE/UFG",
+        "period": "Ene/2025 - Actualmente",
+        "description": "Desarrollo de una aplicacion de gestion de base de datos, capaz de crear multiples tablas y establecer relaciones entre los datos de forma dinamica y eficiente"
+      },
+      "exp2": {
+        "title": "Desarrollador Full Stack - Tech Lead",
+        "company": "Clicksoft",
+        "period": "Septiembre/2024 - Diciembre/2024",
+        "description": "Coordinacion de equipos de desarrollo, garantizando entregas alineadas con las mejores practicas del mercado. Definicion de arquitecturas de sistemas escalables y resilientes para proyectos estrategicos"
+      },
+      "exp3": {
+        "title": "Desarrollador Full Stack - Nivel medio",
+        "company": "Clicksoft",
+        "period": "Junio/2023 - Agosto/2024",
+        "description": "Desarrollo de sistemas completos para clientes, utilizando React, Node.js y MongoDB. Integracion con APIs de pago e implementacion de autenticacion JWT."
+      },
+      "exp4": {
+        "title": "Desarrollador Full Stack - Junior",
+        "company": "Clicksoft",
+        "period": "Marzo/2022 - Mayo/2023",
+        "description": "Desarrollo de sistemas completos para clientes, utilizando React, Node.js y MongoDB. Integracion con APIs de pago e implementacion de autenticacion JWT."
+      },
+      "exp5": {
+        "title": "Consultor Fluig - Junior",
+        "company": "Grupo IV2",
+        "period": "Marzo/2021 - Febrero/2022",
+        "description": "Personalizacion e implementacion de soluciones en la plataforma Fluig, optimizando procesos de gestion empresarial. Automatizacion de flujos de trabajo e integraciones entre sistemas ERP y Fluig"
+      },
+      "exp6": {
+        "title": "Programador - Investigador",
+        "company": "Instituto Federal de Amazonas",
+        "period": "Marzo/2021 - Febrero/2022",
+        "description": "Investigacion de soluciones tecnologicas para proyectos academicos e investigaciones orientadas a la innovacion y el impacto social en la region amazonica."
+      }
+    },
+    "education": {
+      "edu1": {
+        "title": "Especialista en Desarrollo Full Stack",
+        "company": "Universidad Federal de Amazonas - Web Academy",
+        "period": "2025 - 2026",
+        "description": "Especializacion en desarrollo web full stack a traves del programa Web Academy (alianza UFAM/Motorola), con enfasis en aplicaciones modernas, inteligencia artificial y ciberseguridad."
+      },
+      "edu2": {
+        "title": "Licenciatura en Ingenieria de Software",
+        "company": "Universidad Federal de Amazonas",
+        "period": "2017 - 2022",
+        "description": "Formacion academica en ingenieria de software con enfasis en desarrollo de software, algoritmos y estructuras de datos."
+      },
+      "edu3": {
+        "title": "Tecnico en Informatica",
+        "company": "Instituto Federal de Amazonas",
+        "period": "2014 - 2016",
+        "description": "Formacion tecnica en informatica con enfasis en programacion y redes de computadoras."
+      }
+    }
+  },
+  "contact": {
+    "pageTitle": "Hablemos!",
+    "pageDescription": "Contactame para discutir tu proyecto u oportunidad de trabajo",
+    "location": "Manaus, AM - Brasil",
+    "formTitle": "Envia un mensaje",
+    "nameLabel": "Nombre completo",
+    "namePlaceholder": "Tu nombre...",
+    "emailLabel": "Correo electronico",
+    "emailPlaceholder": "tu@email.com",
+    "messageLabel": "Mensaje",
+    "messagePlaceholder": "Escribe tu mensaje aqui...",
+    "submit": "Enviar mensaje"
+  },
+  "footer": {
+    "copyright": "Jhollyfer Rodrigues",
+    "footerNav": "Navegacion del pie de pagina",
+    "socialNav": "Redes sociales"
+  },
+  "projects": {
+    "adacaibs": "Sitio web de la Asociacion de Desarrollo Artistico y Cultural de la Aldea Indigena de Belem do Solimoes. Preservacion de la cultura Tikuna y conservacion de la biodiversidad.",
+    "matiscraft": "Catalogo digital que preserva, documenta y valoriza la artesania tradicional del pueblo Matis, conectando historia, identidad y saberes ancestrales.",
+    "manganga": "Sitio web oficial del Boi Bumba Manganga, celebrando mas de 30 anos de tradicion cultural amazonica en Benjamin Constant, el mayor festival folclorico del Alto Solimoes."
+  },
+  "metadata": {
+    "home": {
+      "title": "Jhollyfer | Inicio",
+      "description": "Portafolio de Jhollyfer Rodrigues, el primer Ingeniero de Software Indigena Tikuna de la Amazonia"
+    },
+    "about": {
+      "title": "Jhollyfer | Acerca de",
+      "description": "Conoce mas sobre mi trayectoria y experiencia, el primer Ingeniero de Software Indigena Tikuna de la Amazonia"
+    },
+    "portfolio": {
+      "title": "Jhollyfer | Portafolio",
+      "description": "Conoce algunos de los proyectos que desarrolle a lo largo de mi carrera"
+    },
+    "skills": {
+      "title": "Jhollyfer | Habilidades y Tecnologias",
+      "description": "Conoce mas sobre mis habilidades y las tecnologias que utilizo, el primer Ingeniero de Software Indigena Tikuna de la Amazonia"
+    },
+    "career": {
+      "title": "Jhollyfer | Carrera",
+      "description": "Conoce mas sobre mis experiencias y formacion, el primer Ingeniero de Software Indigena Tikuna de la Amazonia"
+    },
+    "contact": {
+      "title": "Jhollyfer | Contacto",
+      "description": "Contacta al primer Ingeniero de Software Indigena Tikuna de la Amazonia"
+    }
+  }
+}

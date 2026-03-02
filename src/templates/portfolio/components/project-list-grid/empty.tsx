@@ -1,4 +1,8 @@
+import { useTranslations } from "next-intl";
+
 export function Empty() {
+  const t = useTranslations("portfolio.empty");
+
   return (
     <div className="text-center py-20">
       <div className="w-16 h-16 mx-auto mb-4 opacity-50">
@@ -17,11 +21,10 @@ export function Empty() {
         </svg>
       </div>
       <h3 className="text-xl font-medium text-foreground mb-2">
-        Nenhum projeto encontrado
+        {t("title")}
       </h3>
       <p className="text-muted-foreground max-w-md mx-auto">
-        Não encontramos projetos nesta categoria. Tente filtrar por uma
-        categoria diferente.
+        {t("description")}
       </p>
     </div>
   );

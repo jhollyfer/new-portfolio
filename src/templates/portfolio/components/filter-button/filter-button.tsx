@@ -1,23 +1,20 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "@/i18n/navigation";
+import { useSearchParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 import React from "react";
+
 export type ProjectCategory = "all" | "frontend" | "backend" | "mobile";
 
 interface Props {
   category: ProjectCategory;
 }
 
-const ProjectCategoryMapper = {
-  all: "Todos",
-  frontend: "Front-end",
-  backend: "Back-end",
-  mobile: "Mobile",
-};
-
 export function FilterButton({ category }: Props) {
   const router = useRouter();
+  const t = useTranslations("portfolio.filters");
 
   const searchParams = useSearchParams();
   const searchCategory = searchParams.get("category") ?? "all";
@@ -43,7 +40,7 @@ export function FilterButton({ category }: Props) {
       type="button"
       aria-pressed={isActive}
     >
-      {ProjectCategoryMapper[category]}
+      {t(category)}
     </button>
   );
 }
