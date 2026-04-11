@@ -1,25 +1,53 @@
-import Image from "next/image";
+"use client";
 
-interface Props {
-  name: string;
-  icon: string;
+import Image from "next/image";
+import type { Skill } from "@/lib/types";
+import { cn } from "@/lib/utils";
+
+interface SkillIconProps {
+  skill: Skill;
+  level?: number;
 }
 
-export function SkillIcon({ name, icon }: Props) {
+export function SkillIcon({ skill }: SkillIconProps): React.JSX.Element {
+  const level = skill.level ?? 0;
+
   return (
-    <div className="group flex flex-col items-center gap-2">
-      <div className="size-16 flex items-center justify-center rounded-2xl bg-white/[0.04] border border-white/[0.08] group-hover:border-green-400/20 group-hover:bg-white/[0.06] transition-all duration-200">
-        <Image
-          src={icon}
-          alt={name}
-          className="size-7"
-          width={28}
-          height={28}
-        />
+    <div className="bezel-shell group/skill">
+      <div className="bezel-core flex flex-col items-start gap-3 p-4">
+        <div className="relative flex size-10 items-center justify-center overflow-hidden">
+          <Image
+            src={skill.icon}
+            alt={skill.name}
+            width={32}
+            height={32}
+            unoptimized
+            className="size-8 object-contain transition-transform duration-500 ease-[var(--ease-cinematic)] group-hover/skill:scale-110"
+          />
+        </div>
+        <div className="flex w-full items-center justify-between gap-2">
+          <span className="truncate text-xs font-medium text-foreground">
+            {skill.name}
+          </span>
+          {level > 0 ? (
+            <span
+              aria-hidden
+              className="flex items-center gap-0.5"
+              title={`Level ${level}`}
+            >
+              {[1, 2, 3].map((dot) => (
+                <span
+                  key={dot}
+                  className={cn(
+                    "inline-block size-1 rounded-full",
+                    dot <= level ? "bg-primary" : "bg-border-strong",
+                  )}
+                />
+              ))}
+            </span>
+          ) : null}
+        </div>
       </div>
-      <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors duration-200">
-        {name}
-      </span>
     </div>
   );
 }

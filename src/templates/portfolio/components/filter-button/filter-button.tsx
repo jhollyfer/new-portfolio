@@ -1,46 +1,58 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-import { useRouter } from "@/i18n/navigation";
-import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
-import React from "react";
+import { useSearchParams } from "next/navigation";
+import { useCallback } from "react";
 
-export type ProjectCategory = "all" | "frontend" | "backend" | "mobile";
+import { useRouter } from "@/i18n/navigation";
+import { cn, focusRing } from "@/lib/utils";
+import type { ProjectCategory } from "@/lib/types";
 
-interface Props {
+interface FilterButtonProps {
   category: ProjectCategory;
+  count: number;
 }
 
-export function FilterButton({ category }: Props) {
+export function FilterButton({
+  category,
+  count,
+}: FilterButtonProps): React.JSX.Element {
   const router = useRouter();
   const t = useTranslations("portfolio.filters");
-
   const searchParams = useSearchParams();
-  const searchCategory = searchParams.get("category") ?? "all";
+  const current = searchParams.get("category") ?? "all";
 
-  const handleCategory = React.useCallback(
-    (category: ProjectCategory) => {
-      router.push(`/portfolio?category=${encodeURIComponent(category)}`);
-    },
-    [router]
-  );
+  const handleClick = useCallback(() => {
+    const params = new URLSearchParams();
+    if (category !== "all") params.set("category", category);
+    const query = params.toString();
+    router.push(`/portfolio${query ? `?${query}` : ""}`, { scroll: false });
+  }, [category, router]);
 
-  const isActive = category === searchCategory;
+  const active = current === category || (category === "all" && current === "all");
 
   return (
     <button
-      onClick={() => handleCategory(category)}
-      className={cn(
-        "px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-green-400/50",
-        isActive
-          ? "bg-green-400 text-black"
-          : "bg-white/[0.04] border border-white/[0.08] text-muted-foreground hover:text-foreground hover:bg-white/[0.08]"
-      )}
       type="button"
-      aria-pressed={isActive}
+      onClick={handleClick}
+      aria-pressed={active}
+      className={cn(
+        "group/filter inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-colors",
+        active
+          ? "border-primary/50 bg-primary text-primary-foreground"
+          : "border-border bg-[var(--bezel-shell-bg)] text-muted-foreground hover:border-border-strong hover:text-foreground",
+        focusRing,
+      )}
     >
-      {t(category)}
+      <span>{t(category)}</span>
+      <span
+        className={cn(
+          "font-mono text-[0.625rem] tracking-[0.12em]",
+          active ? "text-primary-foreground/80" : "text-muted-foreground/70",
+        )}
+      >
+        {count.toString().padStart(2, "0")}
+      </span>
     </button>
   );
 }

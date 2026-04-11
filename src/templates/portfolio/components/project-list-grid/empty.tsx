@@ -1,31 +1,28 @@
+import { PackageOpen } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-export function Empty() {
+import { Link } from "@/i18n/navigation";
+import { cn, focusRing } from "@/lib/utils";
+
+export function Empty(): React.JSX.Element {
   const t = useTranslations("portfolio.empty");
 
   return (
-    <div className="text-center py-20">
-      <div className="w-16 h-16 mx-auto mb-4 opacity-50">
-        <svg
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          className="w-full h-full"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={1.5}
-            d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
-          />
-        </svg>
+    <div className="bezel-shell">
+      <div className="bezel-core flex flex-col items-center gap-6 px-6 py-20 text-center">
+        <span className="section-badge">
+          <PackageOpen aria-hidden className="size-5" />
+        </span>
+        <div className="flex flex-col gap-2">
+          <h3 className="text-xl font-semibold tracking-tight">{t("title")}</h3>
+          <p className="max-w-md text-sm text-muted-foreground">
+            {t("description")}
+          </p>
+        </div>
+        <Link href="/portfolio" className={cn("cta-ghost", focusRing)}>
+          {t("reset")}
+        </Link>
       </div>
-      <h3 className="text-xl font-medium text-foreground mb-2">
-        {t("title")}
-      </h3>
-      <p className="text-muted-foreground max-w-md mx-auto">
-        {t("description")}
-      </p>
     </div>
   );
 }

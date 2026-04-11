@@ -1,74 +1,127 @@
-import { DownloadIcon, GithubIcon, LinkedinIcon, SendIcon } from "lucide-react";
+import { ArrowUpRight, Download, Github, Linkedin } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
 
-export function Hero() {
+import { Magnetic } from "@/components/magnetic/magnetic";
+import { Link } from "@/i18n/navigation";
+import { cn, focusRing } from "@/lib/utils";
+
+const SOCIALS = [
+  {
+    key: "github",
+    href: "https://github.com/jhollyfer",
+    label: "GitHub",
+    Icon: Github,
+  },
+  {
+    key: "linkedin",
+    href: "https://www.linkedin.com/in/jhollyferr",
+    label: "LinkedIn",
+    Icon: Linkedin,
+  },
+] as const;
+
+export function Hero(): React.JSX.Element {
   const t = useTranslations("hero");
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center pt-16">
-      <div className="section-container relative z-10">
-        <div className="animate-slide-up flex flex-col items-center text-center">
-            <div className="inline-flex items-center gap-2 rounded-full bg-green-400/10 border border-green-400/20 px-3 py-1 mb-8">
-              <span className="relative flex size-2">
-                <span className="absolute inset-0 rounded-full bg-green-400 animate-pulse-dot"></span>
-                <span className="relative inline-flex size-2 rounded-full bg-green-400"></span>
+    <section className="relative flex min-h-[100dvh] items-center pt-28 pb-24">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-[1] overflow-hidden"
+      >
+        <div className="absolute -top-1/3 left-1/2 h-[60vmax] w-[60vmax] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,color-mix(in_oklch,var(--primary)_18%,transparent),transparent_70%)] opacity-70 blur-3xl animate-[spotlight-drift_30s_ease-in-out_infinite]" />
+      </div>
+
+      <div className="section-container relative z-[1]">
+        <div className="grid grid-cols-12 gap-y-12">
+          <div className="col-span-12 flex flex-col justify-between md:col-span-8">
+            <div className="flex items-center gap-3">
+              <span className="relative inline-flex size-2">
+                <span className="absolute inset-0 animate-pulse-dot rounded-full bg-primary" />
+                <span className="relative inline-flex size-2 rounded-full bg-primary" />
               </span>
-              <span className="text-sm text-green-400 font-medium">{t("available")}</span>
+              <span className="kbd">{t("eyebrow")}</span>
+              <span className="mx-2 hidden h-px w-10 bg-border sm:block" />
+              <span className="kbd hidden sm:inline">{t("lastUpdate")}</span>
             </div>
 
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-4 text-balance">
-              Jhollyfer
-              <br />
-              <span className="text-green-400">Rodrigues</span>
+            <h1 className="text-hero mt-10 font-semibold">
+              <span className="block text-foreground">{t("nameFirst")}</span>
+              <span className="relative block text-primary">
+                <span className="relative inline-block">
+                  {t("nameLast")}
+                  <span
+                    aria-hidden
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/30 to-transparent animate-[hairline-sweep_2.6s_var(--ease-cinematic)_both]"
+                    style={{ mixBlendMode: "overlay" }}
+                  />
+                </span>
+              </span>
             </h1>
 
-            <p className="text-xl text-muted-foreground mb-3 max-w-2xl text-balance">
+            <p className="mt-10 max-w-2xl text-balance text-lg text-foreground/90 md:text-xl">
               {t("role")}
             </p>
-
-            <p className="text-muted-foreground mb-8 max-w-2xl text-balance">
+            <p className="mt-4 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
               {t("description")}
             </p>
 
-            <div className="flex items-center justify-center gap-3 mb-8">
-              <a
-                href="https://github.com/jhollyfer"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="size-10 flex items-center justify-center rounded-full bg-white/[0.06] border border-white/[0.08] text-muted-foreground hover:text-foreground hover:border-white/20 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
-                aria-label="GitHub"
-              >
-                <GithubIcon size={18} />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/jhollyferr"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="size-10 flex items-center justify-center rounded-full bg-white/[0.06] border border-white/[0.08] text-muted-foreground hover:text-foreground hover:border-white/20 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
-                aria-label="LinkedIn"
-              >
-                <LinkedinIcon size={18} />
-              </a>
+            <div className="mt-12 flex flex-wrap items-center gap-4">
+              <Magnetic>
+                <Link href="/contact" className={cn("cta-pill", focusRing)}>
+                  {t("letsChat")}
+                  <span className="cta-pill__icon">
+                    <ArrowUpRight aria-hidden className="size-4" />
+                  </span>
+                </Link>
+              </Magnetic>
+              <Magnetic>
+                <a
+                  href="/jhollyfer.pdf"
+                  download
+                  className={cn("cta-ghost", focusRing)}
+                >
+                  <Download aria-hidden className="size-4" />
+                  {t("downloadCV")}
+                </a>
+              </Magnetic>
+            </div>
+          </div>
+
+          <aside className="col-span-12 flex flex-col justify-between gap-12 md:col-span-4 md:items-end md:text-right">
+            <div className="flex flex-col gap-2">
+              <p className="kbd">{t("basedIn")}</p>
             </div>
 
-            <div className="flex flex-wrap justify-center gap-3">
-              <a
-                href="/jhollyfer.pdf"
-                download
-                className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/[0.06] border border-white/[0.08] text-sm font-medium text-foreground hover:bg-white/[0.1] hover:border-white/20 transition-all duration-200 cursor-pointer"
-              >
-                <DownloadIcon size={16} className="group-hover:translate-y-0.5 transition-transform duration-200" />
-                {t("downloadCV")}
-              </a>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-green-400 text-black text-sm font-medium hover:bg-green-300 transition-colors duration-200 cursor-pointer"
-              >
-                <SendIcon size={16} />
-                {t("letsChat")}
-              </Link>
+            <div className="flex items-center gap-3 md:justify-end">
+              {SOCIALS.map(({ key, href, label, Icon }) => (
+                <Magnetic key={key} strength={8}>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className={cn(
+                      "bezel-shell inline-flex size-12 items-center justify-center transition-colors hover:text-primary",
+                      focusRing,
+                    )}
+                  >
+                    <span className="bezel-core inline-flex size-full items-center justify-center">
+                      <Icon aria-hidden className="size-4" />
+                    </span>
+                  </a>
+                </Magnetic>
+              ))}
             </div>
+
+            <div className="flex items-center gap-2 md:justify-end">
+              <span className="kbd">{t("scrollHint")}</span>
+              <span
+                aria-hidden
+                className="inline-block h-6 w-px bg-border-strong"
+              />
+            </div>
+          </aside>
         </div>
       </div>
     </section>

@@ -1,27 +1,35 @@
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { ArrowUpRight } from "lucide-react";
+import type { Metadata } from "next";
 import Image from "next/image";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+
+import { Magnetic } from "@/components/magnetic/magnetic";
+import { ScrollReveal } from "@/components/scroll-reveal/scroll-reveal";
+import { Link } from "@/i18n/navigation";
+import { cn, focusRing } from "@/lib/utils";
 
 interface Props {
   params: Promise<{ locale: string }>;
 }
 
-const techStack = [
-  "React",
-  "Next.js",
-  "TypeScript",
-  "Node.js",
-  "Tailwind CSS",
-  "React Native",
-  "PostgreSQL",
-  "MongoDB",
-  "Docker",
-  "AWS",
-];
+const TOOLING = {
+  languages: ["TypeScript", "JavaScript", "Python", "SQL"],
+  frameworks: [
+    "Next.js",
+    "React",
+    "Node.js",
+    "Express",
+    "AdonisJS",
+    "React Native",
+  ],
+  infra: ["Docker", "PostgreSQL", "MongoDB", "Redis", "AWS", "Vercel"],
+} as const;
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({
+  params,
+}: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata.about" });
-
   return {
     title: t("title"),
     description: t("description"),
@@ -29,80 +37,127 @@ export async function generateMetadata({ params }: Props) {
     openGraph: {
       title: t("title"),
       description: t("description"),
-      url: "https://jhollyfer.com.br/og-image.png",
-      siteName: "jhollyfer.com.br",
-      locale,
       type: "website",
-      images: [
-        {
-          url: "https://jhollyfer.com.br/og-image.png",
-          width: 705,
-          height: 248,
-          alt: t("title"),
-        },
-      ],
+      locale,
     },
   };
 }
 
-export default async function About({ params }: Props) {
+export default async function AboutPage({
+  params,
+}: Props): Promise<React.JSX.Element> {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("about");
 
   return (
-    <div className="pt-32 pb-24">
+    <div className="pt-36 pb-24">
       <div className="section-container">
-        <div className="page-header">
-          <h1>{t("pageTitle")}</h1>
-          <p>{t("pageDescription")}</p>
-        </div>
+        <header className="page-header">
+          <ScrollReveal>
+            <p className="eyebrow">{t("eyebrow")}</p>
+          </ScrollReveal>
+          <ScrollReveal delay={80}>
+            <h1>{t("pageTitle")}</h1>
+          </ScrollReveal>
+          <ScrollReveal delay={160}>
+            <p>{t("pageDescription")}</p>
+          </ScrollReveal>
+        </header>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className="flex flex-col items-center lg:items-start">
-            <div className="relative">
-              <div className="absolute inset-0 bg-green-400/10 rounded-2xl blur-3xl" />
-              <Image
-                src="https://avatars.githubusercontent.com/u/67079657?v=4"
-                alt="Jhollyfer Rodrigues"
-                className="relative rounded-2xl object-cover ring-1 ring-white/[0.1]"
-                width={280}
-                height={280}
-              />
-            </div>
-
-            <div className="mt-6 text-center lg:text-left">
-              <h2 className="text-lg font-semibold mb-1">{t("name")}</h2>
-              <p className="text-green-400 text-sm">{t("role")}</p>
-            </div>
+        <section className="grid grid-cols-12 gap-10">
+          <div className="col-span-12 md:col-span-5">
+            <ScrollReveal>
+              <div className="bezel-shell sticky top-28">
+                <div className="bezel-core relative aspect-[4/5] overflow-hidden">
+                  <Image
+                    src="https://avatars.githubusercontent.com/u/67079657?v=4"
+                    alt={t("name")}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 40vw"
+                    priority
+                    className="object-cover"
+                  />
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 p-6">
+                    <p className="kbd mb-1">— {t("role")}</p>
+                    <p className="text-lg font-semibold text-foreground">
+                      {t("name")}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
           </div>
 
-          <article>
-            <h2 className="text-2xl font-bold tracking-tight mb-6">
-              {t("greeting")}
-            </h2>
-
-            <div className="space-y-5 text-muted-foreground leading-relaxed">
-              <p className="text-pretty">{t("bio1")}</p>
-              <p className="text-pretty">{t("bio2")}</p>
-              <p className="text-pretty">{t("bio3")}</p>
-              <p className="text-pretty">{t("bio4")}</p>
+          <article className="col-span-12 md:col-span-7">
+            <div className="space-y-6 text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
+              <ScrollReveal>
+                <p className="first-letter:mr-1 first-letter:float-left first-letter:font-serif first-letter:text-5xl first-letter:font-semibold first-letter:text-foreground first-letter:leading-none">
+                  {t("bio1")}
+                </p>
+              </ScrollReveal>
+              <ScrollReveal delay={80}>
+                <p>{t("bio2")}</p>
+              </ScrollReveal>
+              <ScrollReveal delay={160}>
+                <p>{t("bio3")}</p>
+              </ScrollReveal>
             </div>
 
-            <div className="mt-8">
-              <h3 className="text-sm font-medium text-foreground mb-3">
-                {t("mainTech")}
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {techStack.map((tech) => (
-                  <span key={tech} className="tech-badge">
-                    {tech}
-                  </span>
+            <section className="mt-16 border-t border-border pt-10">
+              <ScrollReveal>
+                <p className="kbd mb-8">{t("tools.eyebrow")}</p>
+              </ScrollReveal>
+              <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
+                {(
+                  [
+                    ["languages", TOOLING.languages],
+                    ["frameworks", TOOLING.frameworks],
+                    ["infra", TOOLING.infra],
+                  ] as const
+                ).map(([key, list], groupIndex) => (
+                  <ScrollReveal key={key} delay={groupIndex * 80}>
+                    <dl className="flex flex-col gap-3">
+                      <dt className="kbd">{t(`tools.${key}`)}</dt>
+                      <dd>
+                        <ul className="flex flex-col gap-1.5 text-sm text-foreground/90">
+                          {list.map((tool) => (
+                            <li
+                              key={tool}
+                              className="font-mono tracking-tight"
+                            >
+                              {tool}
+                            </li>
+                          ))}
+                        </ul>
+                      </dd>
+                    </dl>
+                  </ScrollReveal>
                 ))}
               </div>
+            </section>
+
+            <div className="mt-16">
+              <ScrollReveal>
+                <Magnetic>
+                  <Link
+                    href="/contact"
+                    className={cn("cta-pill", focusRing)}
+                  >
+                    {t("cta")}
+                    <span className="cta-pill__icon">
+                      <ArrowUpRight aria-hidden className="size-4" />
+                    </span>
+                  </Link>
+                </Magnetic>
+              </ScrollReveal>
             </div>
           </article>
-        </div>
+        </section>
       </div>
     </div>
   );

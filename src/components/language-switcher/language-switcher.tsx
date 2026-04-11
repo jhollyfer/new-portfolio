@@ -1,69 +1,102 @@
 "use client";
 
+import * as Popover from "@radix-ui/react-popover";
+import { Check, Globe } from "lucide-react";
+import { useLocale } from "next-intl";
+import { useTransition } from "react";
+
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
-import { cn } from "@/lib/utils";
-import { GlobeIcon } from "lucide-react";
-import { useLocale } from "next-intl";
-import React from "react";
+import { cn, focusRing } from "@/lib/utils";
 
-const LOCALE_LABELS: Record<string, string> = {
-  "pt-BR": "PT",
-  "en-US": "EN",
-  es: "ES",
+type SupportedLocale = (typeof routing.locales)[number];
+
+const LOCALE_DATA: Record<
+  SupportedLocale,
+  { short: string; name: string }
+> = {
+  "pt-BR": { short: "PT", name: "Português" },
+  "en-US": { short: "EN", name: "English" },
+  es: { short: "ES", name: "Español" },
 };
 
-export function LanguageSwitcher() {
+function isSupportedLocale(value: string): value is SupportedLocale {
+  return (routing.locales as readonly string[]).includes(value);
+}
+
+interface LanguageSwitcherProps {
+  className?: string;
+}
+
+export function LanguageSwitcher({
+  className,
+}: LanguageSwitcherProps): React.JSX.Element {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
-  const [isOpen, setIsOpen] = React.useState(false);
-  const ref = React.useRef<HTMLDivElement>(null);
+  const [isPending, startTransition] = useTransition();
 
-  React.useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (ref.current && !ref.current.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+  const current: SupportedLocale = isSupportedLocale(locale) ? locale : "pt-BR";
 
-  function switchLocale(newLocale: string) {
-    router.replace(pathname, { locale: newLocale as typeof routing.locales[number] });
-    setIsOpen(false);
-  }
+  const handleSelect = (target: SupportedLocale): void => {
+    if (target === current) return;
+    startTransition(() => {
+      router.replace(pathname, { locale: target });
+    });
+  };
 
   return (
-    <div ref={ref} className="relative">
-      <button
-        onClick={() => setIsOpen((s) => !s)}
-        className="size-9 flex items-center justify-center rounded-md text-muted-foreground hover:text-foreground hover:bg-white/[0.06] transition-colors duration-200 cursor-pointer"
-        aria-label="Language"
-        aria-expanded={isOpen}
+    <Popover.Root>
+      <Popover.Trigger
+        aria-label={LOCALE_DATA[current].name}
+        className={cn(
+          "inline-flex size-10 items-center justify-center rounded-full border border-border bg-background/40 text-foreground/80 backdrop-blur transition-colors hover:border-border-strong hover:text-foreground data-[state=open]:border-border-strong",
+          isPending && "opacity-60",
+          focusRing,
+          className,
+        )}
       >
-        <GlobeIcon size={18} />
-      </button>
-
-      {isOpen && (
-        <div className="absolute right-0 top-full mt-1 min-w-[7rem] rounded-lg bg-background border border-white/[0.08] shadow-xl overflow-hidden animate-fade-in z-50">
-          {routing.locales.map((loc) => (
-            <button
-              key={loc}
-              onClick={() => switchLocale(loc)}
-              className={cn(
-                "w-full px-3 py-2 text-left text-sm transition-colors duration-150 cursor-pointer",
-                loc === locale
-                  ? "text-green-400 bg-white/[0.04]"
-                  : "text-muted-foreground hover:text-foreground hover:bg-white/[0.06]"
-              )}
-            >
-              {LOCALE_LABELS[loc]}
-            </button>
-          ))}
-        </div>
-      )}
-    </div>
+        <Globe aria-hidden className="size-4" />
+      </Popover.Trigger>
+      <Popover.Portal>
+        <Popover.Content
+          align="end"
+          sideOffset={10}
+          className="z-[70] w-44 rounded-xl border border-border bg-popover p-1 text-popover-foreground shadow-xl backdrop-blur-xl animate-fade-in"
+        >
+          <ul className="flex flex-col">
+            {routing.locales.map((loc) => {
+              const data = LOCALE_DATA[loc];
+              const active = loc === current;
+              return (
+                <li key={loc}>
+                  <button
+                    type="button"
+                    onClick={() => handleSelect(loc)}
+                    className={cn(
+                      "flex w-full items-center justify-between rounded-lg px-3 py-2 text-sm transition-colors",
+                      active
+                        ? "bg-[color-mix(in_oklch,var(--primary)_12%,transparent)] text-primary"
+                        : "text-muted-foreground hover:bg-[var(--bezel-shell-bg)] hover:text-foreground",
+                      focusRing,
+                    )}
+                  >
+                    <span className="flex items-center gap-3">
+                      <span className="font-mono text-[0.625rem] uppercase tracking-[0.18em] text-muted-foreground">
+                        {data.short}
+                      </span>
+                      <span className="text-sm">{data.name}</span>
+                    </span>
+                    {active ? (
+                      <Check aria-hidden className="size-3.5 text-primary" />
+                    ) : null}
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </Popover.Content>
+      </Popover.Portal>
+    </Popover.Root>
   );
 }

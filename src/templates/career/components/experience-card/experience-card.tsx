@@ -1,61 +1,88 @@
-import { cn } from "@/lib/utils";
+"use client";
 
-interface Props {
-  title: string;
-  company: string;
-  period: string;
-  description: string;
-  techs?: string[];
-  variant?: "default" | "accent";
-  currentLabel?: string;
+import type { Experience } from "@/lib/types";
+import { cn, formatPeriod } from "@/lib/utils";
+import { useLocale, useTranslations } from "next-intl";
+
+interface ExperienceCardProps {
+  experience: Experience;
+  descriptionKey: string;
 }
 
 export function ExperienceCard({
-  title,
-  company,
-  period,
-  description,
-  techs,
-  variant = "default",
-  currentLabel,
-}: Props) {
+  experience,
+  descriptionKey,
+}: ExperienceCardProps): React.JSX.Element {
+  const locale = useLocale();
+  const tc = useTranslations("career");
+  const tCommon = useTranslations("common");
+  const td = useTranslations();
+
   return (
-    <article
-      className={cn(
-        "card-border p-5",
-        variant === "accent" && "border-l-2 border-l-green-400 border-green-400/20 bg-green-400/[0.02]"
-      )}
-    >
-      <div className="flex items-start justify-between gap-3 mb-3">
-        <div>
-          <h3 className="font-semibold mb-0.5">{title}</h3>
-          <h4 className="text-sm text-muted-foreground">{company}</h4>
-        </div>
-        <div className="flex items-center gap-2 shrink-0">
-          <time className="text-xs text-muted-foreground">
-            {period}
-          </time>
-          {variant === "accent" && (
-            <span className="text-xs px-2 py-0.5 rounded-full bg-green-400/15 text-green-400 font-medium">
-              {currentLabel ?? "Atual"}
+    <article className="bezel-shell">
+      <div className="bezel-core grid grid-cols-12 gap-6 p-6 md:p-8">
+        <div className="col-span-12 flex items-start justify-between gap-4 md:col-span-3 md:flex-col md:items-start md:gap-3">
+          <span className="kbd whitespace-nowrap">
+            {formatPeriod(
+              experience.start,
+              experience.end,
+              locale,
+              tc("presentLabel"),
+            )}
+          </span>
+          {experience.current ? (
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-2.5 py-0.5 text-[0.625rem] font-medium uppercase tracking-[0.14em] text-primary">
+              <span className="relative inline-flex size-1.5">
+                <span className="absolute inset-0 animate-pulse-dot rounded-full bg-primary" />
+                <span className="relative inline-flex size-1.5 rounded-full bg-primary" />
+              </span>
+              {tCommon("currentBadge")}
             </span>
-          )}
+          ) : null}
+          {experience.location ? (
+            <span className="hidden text-xs text-muted-foreground md:inline">
+              {experience.location}
+            </span>
+          ) : null}
+        </div>
+        <div className="col-span-12 flex flex-col gap-4 md:col-span-9">
+          <header className="flex flex-col gap-1">
+            <h3 className="text-lg font-semibold tracking-tight text-foreground">
+              {experience.role}
+            </h3>
+            <p className="text-sm text-muted-foreground">
+              {experience.company}
+            </p>
+          </header>
+          <p className="max-w-prose text-pretty text-sm leading-relaxed text-muted-foreground">
+            {td(descriptionKey)}
+          </p>
+          {experience.highlights && experience.highlights.length > 0 ? (
+            <ul className="flex flex-col gap-1.5 text-sm text-foreground/90">
+              {experience.highlights.map((highlight) => (
+                <li key={highlight} className="flex items-start gap-3">
+                  <span
+                    aria-hidden
+                    className={cn(
+                      "mt-2 inline-block h-px w-3 flex-shrink-0 bg-border-strong",
+                    )}
+                  />
+                  {highlight}
+                </li>
+              ))}
+            </ul>
+          ) : null}
+          {experience.techs.length > 0 ? (
+            <ul className="flex flex-wrap gap-1.5">
+              {experience.techs.map((tech) => (
+                <li key={tech} className="tech-badge">
+                  {tech}
+                </li>
+              ))}
+            </ul>
+          ) : null}
         </div>
       </div>
-
-      <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-        {description}
-      </p>
-
-      {techs && techs.length > 0 && (
-        <div className="flex flex-wrap gap-1.5">
-          {techs.map((tech) => (
-            <span key={tech} className="tech-badge">
-              {tech}
-            </span>
-          ))}
-        </div>
-      )}
     </article>
   );
 }

@@ -1,35 +1,55 @@
 "use client";
 
-import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import type { ComponentProps, ReactNode } from "react";
+import { cn, focusRing } from "@/lib/utils";
 import { Link, usePathname } from "@/i18n/navigation";
-import React from "react";
 
-export const ActiveLink = ({
+type LinkProps = ComponentProps<typeof Link>;
+
+interface ActiveLinkProps {
+  href: LinkProps["href"];
+  children: ReactNode;
+  className?: string;
+  sharedLayoutId?: string;
+}
+
+function resolveHref(href: LinkProps["href"]): string {
+  return typeof href === "string" ? href : href.pathname ?? "/";
+}
+
+export function ActiveLink({
   children,
   href,
   className,
-  ...rest
-}: React.ComponentProps<typeof Link>) => {
-  const linkPath = typeof href === "string" ? href : href.pathname;
+  sharedLayoutId = "nav-active-indicator",
+}: ActiveLinkProps): React.JSX.Element {
   const pathname = usePathname();
+  const linkPath = resolveHref(href);
   const isActive =
     linkPath === "/"
       ? pathname === "/"
-      : pathname === linkPath || pathname?.startsWith(`${linkPath}/`);
+      : pathname === linkPath || pathname.startsWith(`${linkPath}/`);
 
   return (
     <Link
-      {...rest}
       href={href}
       className={cn(
-        "relative text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-md pb-1",
-        isActive
-          ? "text-green-400 after:absolute after:bottom-0 after:left-0 after:right-0 after:h-px after:bg-green-400 after:rounded-full"
-          : "text-muted-foreground hover:text-foreground",
-        className
+        "relative inline-flex items-center rounded-md px-1 pb-2 text-sm font-medium transition-colors duration-200",
+        isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground",
+        focusRing,
+        className,
       )}
     >
-      {children}
+      <span className="relative z-[1]">{children}</span>
+      {isActive ? (
+        <motion.span
+          layoutId={sharedLayoutId}
+          aria-hidden
+          className="absolute inset-x-0 bottom-0 h-[2px] rounded-full bg-primary"
+          transition={{ type: "spring", stiffness: 420, damping: 32 }}
+        />
+      ) : null}
     </Link>
   );
-};
+}

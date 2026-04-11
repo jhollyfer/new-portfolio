@@ -1,8 +1,10 @@
-import { Link } from "@/i18n/navigation";
-import { GithubIcon, LinkedinIcon } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-const NAV_LINK_KEYS = [
+import { Link } from "@/i18n/navigation";
+import { cn, focusRing } from "@/lib/utils";
+
+const NAV_LINKS = [
   { key: "home", path: "/" },
   { key: "about", path: "/about" },
   { key: "portfolio", path: "/portfolio" },
@@ -11,58 +13,132 @@ const NAV_LINK_KEYS = [
   { key: "contact", path: "/contact" },
 ] as const;
 
-export function Footer() {
-  const currentYear = new Date().getFullYear();
+const SOCIALS = [
+  {
+    key: "github",
+    href: "https://github.com/jhollyfer",
+    label: "GitHub",
+    Icon: Github,
+  },
+  {
+    key: "linkedin",
+    href: "https://linkedin.com/in/jhollyferr",
+    label: "LinkedIn",
+    Icon: Linkedin,
+  },
+] as const;
+
+export function Footer(): React.JSX.Element {
+  const year = new Date().getFullYear();
   const t = useTranslations("navigation");
   const tf = useTranslations("footer");
+  const tc = useTranslations("contact");
 
   return (
-    <footer className="py-16 mt-24">
-      <div className="section-container">
-        <div className="flex flex-col items-center gap-6">
-          <Link href="/" className="font-extrabold tracking-tight">
-            <span className="text-green-400 text-xl">J</span>
-            <span className="text-xl">R</span>
-          </Link>
+    <footer className="relative z-[1] mt-32 border-t border-border">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-px overflow-hidden"
+      >
+        <div className="absolute inset-0 animate-[hairline-sweep_6s_var(--ease-cinematic)_infinite] bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+      </div>
 
-          <nav aria-label={tf("footerNav")} className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-            {NAV_LINK_KEYS.map((link) => (
-              <Link
-                key={link.path}
-                href={link.path}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
-              >
-                {t(link.key)}
-              </Link>
-            ))}
+      <div className="section-container py-16">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
+          <div className="md:col-span-5">
+            <Link
+              href="/"
+              className={cn(
+                "inline-flex items-baseline font-semibold tracking-tight",
+                focusRing,
+              )}
+            >
+              <span className="text-2xl text-primary">J</span>
+              <span className="text-2xl text-foreground">R</span>
+            </Link>
+            <p className="mt-4 max-w-sm text-sm text-muted-foreground">
+              {tf("tagline")}
+            </p>
+            <div className="mt-6 flex flex-col gap-2 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2">
+                <span
+                  aria-hidden
+                  className="inline-block size-2 animate-pulse-dot rounded-full bg-primary"
+                />
+                <span className="kbd">{tf("status")}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <MapPin aria-hidden className="size-3.5 text-muted-foreground/70" />
+                <span>{tc("location")}</span>
+              </div>
+            </div>
+          </div>
+
+          <nav
+            aria-label={tf("footerNav")}
+            className="md:col-span-4"
+          >
+            <p className="kbd mb-4">{tf("navigate")}</p>
+            <ul className="grid grid-cols-2 gap-y-2 text-sm">
+              {NAV_LINKS.map((item) => (
+                <li key={item.path}>
+                  <Link
+                    href={item.path}
+                    className={cn(
+                      "text-muted-foreground transition-colors hover:text-foreground",
+                      focusRing,
+                    )}
+                  >
+                    {t(item.key)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </nav>
 
-          <nav aria-label={tf("socialNav")} className="flex items-center gap-1">
-            <Link
-              href="https://github.com/jhollyfer"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="size-9 flex items-center justify-center rounded-md text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer"
-              aria-label="GitHub"
-            >
-              <GithubIcon size={18} />
-            </Link>
-            <Link
-              href="https://linkedin.com/in/jhollyferr"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="size-9 flex items-center justify-center rounded-md text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer"
-              aria-label="LinkedIn"
-            >
-              <LinkedinIcon size={18} />
-            </Link>
-          </nav>
+          <div className="md:col-span-3">
+            <p className="kbd mb-4">{tf("elsewhere")}</p>
+            <ul className="flex flex-col gap-3 text-sm">
+              <li>
+                <a
+                  href="mailto:jhollyferr@gmail.com"
+                  className={cn(
+                    "inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground",
+                    focusRing,
+                  )}
+                >
+                  <Mail aria-hidden className="size-3.5" />
+                  jhollyferr@gmail.com
+                </a>
+              </li>
+              {SOCIALS.map(({ key, href, label, Icon }) => (
+                <li key={key}>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className={cn(
+                      "inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground",
+                      focusRing,
+                    )}
+                  >
+                    <Icon aria-hidden className="size-3.5" />
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
 
-          <div className="h-px w-full max-w-xs bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
-
-          <p className="text-sm text-muted-foreground">
-            &copy; {currentYear} {tf("copyright")}
+        <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-border pt-8 text-xs text-muted-foreground md:flex-row md:items-center">
+          <p>
+            <span className="kbd mr-2">©</span>
+            <span className="tabular-nums">{year}</span>{" "}
+            <span>{tf("copyright")}</span>
           </p>
+          <p className="kbd">{tf("built")}</p>
         </div>
       </div>
     </footer>

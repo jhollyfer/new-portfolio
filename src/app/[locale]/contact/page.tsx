@@ -1,15 +1,20 @@
-import { ContactButton } from "@/templates/contact/components/contact-button/contact-button";
-import { MailIcon, MapPinIcon } from "lucide-react";
+import { Clock, Mail, MapPin, Sparkles } from "lucide-react";
+import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+
+import { ScrollReveal } from "@/components/scroll-reveal/scroll-reveal";
+import { ContactChannel } from "@/templates/contact/components/contact-channel/contact-channel";
+import { ContactForm } from "@/templates/contact/components/contact-form/contact-form";
 
 interface Props {
   params: Promise<{ locale: string }>;
 }
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({
+  params,
+}: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata.contact" });
-
   return {
     title: t("title"),
     description: t("description"),
@@ -17,117 +22,75 @@ export async function generateMetadata({ params }: Props) {
     openGraph: {
       title: t("title"),
       description: t("description"),
-      url: "https://jhollyfer.com.br/og-image.png",
-      siteName: "jhollyfer.com.br",
-      locale,
       type: "website",
-      images: [
-        {
-          url: "https://jhollyfer.com.br/og-image.png",
-          width: 705,
-          height: 248,
-          alt: t("title"),
-        },
-      ],
+      locale,
     },
   };
 }
 
-export default async function Contact({ params }: Props) {
+export default async function ContactPage({
+  params,
+}: Props): Promise<React.JSX.Element> {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("contact");
 
   return (
-    <div className="pt-32 pb-24">
+    <div className="pt-36 pb-24">
       <div className="section-container">
-        <div className="page-header">
-          <h1>{t("pageTitle")}</h1>
-          <p>{t("pageDescription")}</p>
-        </div>
+        <header className="page-header">
+          <ScrollReveal>
+            <p className="eyebrow">{t("eyebrow")}</p>
+          </ScrollReveal>
+          <ScrollReveal delay={80}>
+            <h1>{t("pageTitle")}</h1>
+          </ScrollReveal>
+          <ScrollReveal delay={160}>
+            <p>{t("pageDescription")}</p>
+          </ScrollReveal>
+        </header>
 
-        <div className="max-w-lg mx-auto">
-          <div className="mb-10 space-y-3">
-            <ContactButton
-              href="mailto:jhollyfer.fr@gmail.com"
-              icon={<MailIcon size={16} />}
-            >
-              jhollyfer.fr@gmail.com
-            </ContactButton>
-
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <MapPinIcon size={16} />
-              <span>{t("location")}</span>
+        <div className="grid grid-cols-12 gap-10">
+          <div className="col-span-12 md:col-span-5">
+            <ScrollReveal>
+              <p className="kbd mb-6">{t("channels.eyebrow")}</p>
+            </ScrollReveal>
+            <div className="flex flex-col gap-4">
+              <ScrollReveal delay={80}>
+                <ContactChannel
+                  label={t("channels.email")}
+                  value="jhollyferr@gmail.com"
+                  href="mailto:jhollyferr@gmail.com"
+                  Icon={Mail}
+                />
+              </ScrollReveal>
+              <ScrollReveal delay={160}>
+                <ContactChannel
+                  label={t("channels.location")}
+                  value={t("location")}
+                  Icon={MapPin}
+                />
+              </ScrollReveal>
+              <ScrollReveal delay={240}>
+                <ContactChannel
+                  label={t("channels.availability")}
+                  value={t("availability")}
+                  Icon={Sparkles}
+                />
+              </ScrollReveal>
+              <ScrollReveal delay={320}>
+                <ContactChannel
+                  label={t("channels.response")}
+                  value={t("responseTime")}
+                  Icon={Clock}
+                />
+              </ScrollReveal>
             </div>
           </div>
-
-          <div className="card-border p-6">
-            <h2 className="text-xl font-semibold mb-6">{t("formTitle")}</h2>
-
-            <form className="space-y-5">
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-muted-foreground mb-1.5"
-                >
-                  {t("nameLabel")}
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  autoComplete="name"
-                  required
-                  aria-required="true"
-                  className="w-full px-4 py-3 rounded-lg bg-white/[0.04] border border-white/[0.08] text-foreground placeholder:text-muted-foreground/50 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400/50 focus-visible:border-transparent transition-all duration-200"
-                  placeholder={t("namePlaceholder")}
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-muted-foreground mb-1.5"
-                >
-                  {t("emailLabel")}
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  autoComplete="email"
-                  required
-                  aria-required="true"
-                  className="w-full px-4 py-3 rounded-lg bg-white/[0.04] border border-white/[0.08] text-foreground placeholder:text-muted-foreground/50 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400/50 focus-visible:border-transparent transition-all duration-200"
-                  placeholder={t("emailPlaceholder")}
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-muted-foreground mb-1.5"
-                >
-                  {t("messageLabel")}
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={5}
-                  required
-                  aria-required="true"
-                  className="w-full px-4 py-3 rounded-lg bg-white/[0.04] border border-white/[0.08] text-foreground placeholder:text-muted-foreground/50 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400/50 focus-visible:border-transparent transition-all duration-200 resize-none"
-                  placeholder={t("messagePlaceholder")}
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                className="w-full px-6 py-3 rounded-full bg-green-400 text-black font-medium text-sm hover:bg-green-300 transition-colors duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-              >
-                {t("submit")}
-              </button>
-            </form>
+          <div className="col-span-12 md:col-span-7">
+            <ScrollReveal delay={120}>
+              <ContactForm />
+            </ScrollReveal>
           </div>
         </div>
       </div>

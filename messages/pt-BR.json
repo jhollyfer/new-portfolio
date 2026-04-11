@@ -1,60 +1,118 @@
 {
   "navigation": {
-    "home": "Inicio",
+    "home": "Início",
     "about": "Sobre",
-    "portfolio": "Portfolio",
-    "skills": "Skills",
+    "portfolio": "Portfólio",
+    "skills": "Stack",
     "career": "Carreira",
     "contact": "Contato",
     "openMenu": "Abrir menu",
     "closeMenu": "Fechar menu",
-    "skipToContent": "Pular para o conteudo"
+    "skipToContent": "Pular para o conteúdo"
+  },
+  "theme": {
+    "toggle": "Alternar tema — atual: {mode}",
+    "light": "Claro",
+    "dark": "Escuro",
+    "system": "Sistema"
+  },
+  "common": {
+    "readMore": "Ler mais",
+    "viewAll": "Ver tudo",
+    "back": "Voltar",
+    "next": "Próximo",
+    "previous": "Anterior",
+    "live": "LIVE",
+    "archived": "ARQUIVADO",
+    "currentBadge": "EM ANDAMENTO"
   },
   "hero": {
-    "available": "Disponivel para projetos",
-    "role": "Engenheiro de Software",
-    "description": "Criando solucoes digitais que conectam tecnologia, cultura e impacto social desde a Amazonia.",
+    "eyebrow": "Disponível para projetos",
+    "nameFirst": "Jhollyfer",
+    "nameLast": "Rodrigues",
+    "role": "Engenheiro de software full-stack",
+    "description": "Construo produtos web e mobile que ligam tecnologia a cultura e impacto social a partir da Amazônia.",
     "downloadCV": "Baixar CV",
-    "letsChat": "Vamos conversar!"
+    "letsChat": "Vamos conversar",
+    "scrollHint": "Role para explorar",
+    "basedIn": "Baseado em Manaus · AM",
+    "lastUpdate": "Atualizado · mar 2026"
   },
   "home": {
-    "categories": {
+    "aboutSnippet": {
+      "eyebrow": "Sobre",
+      "title": "Engenharia com raiz e propósito",
+      "description": "Sou o primeiro engenheiro de software indígena Tikuna da Amazônia. Carrego essa vivência para cada produto que construo, escrevendo código que respeita pessoas e lugares.",
+      "cta": "Conheça minha história"
+    },
+    "bento": {
+      "eyebrow": "Como trabalho",
+      "title": "Uma stack pequena, usada com precisão",
       "frontend": {
         "title": "Front-end",
-        "description": "Interfaces modernas e responsivas com foco na experiencia do usuario."
+        "description": "Interfaces acessíveis, rápidas e memoráveis com React, Next.js e Tailwind."
       },
       "backend": {
         "title": "Back-end",
-        "description": "APIs e servicos robustos, escalaveis e com alta performance."
+        "description": "APIs tipadas em Node.js, domínios modelados com cuidado e dados em PostgreSQL."
       },
-      "works": {
-        "title": "Trabalhos",
-        "description": "Projetos para clientes e empresas com foco em qualidade e resultados."
+      "mobile": {
+        "title": "Mobile",
+        "description": "Apps em React Native com foco em conexões instáveis e baixo consumo."
+      },
+      "infra": {
+        "title": "Infra & DevOps",
+        "description": "CI/CD enxuto, containers e observabilidade como parte do produto."
+      },
+      "design": {
+        "title": "Design eng.",
+        "description": "Sistemas de design escaláveis, tipografia cuidadosa e movimento intencional."
+      },
+      "ai": {
+        "title": "IA aplicada",
+        "description": "LLMs acoplados a fluxos reais, com avaliação contínua e telemetria."
       }
     },
-    "featuredProjects": "Projetos em destaque",
-    "viewAll": "Ver todos",
+    "featuredProjects": {
+      "eyebrow": "Projetos selecionados",
+      "title": "Trabalhos recentes",
+      "description": "Um recorte de produtos reais em produção.",
+      "viewAll": "Ver portfólio completo"
+    },
+    "timelineSnippet": {
+      "eyebrow": "Trajetória",
+      "title": "Onde estou construindo",
+      "description": "Dois momentos mais recentes da carreira.",
+      "viewAll": "Linha do tempo completa"
+    },
     "cta": {
-      "title": "Vamos conversar?",
-      "description": "Estou disponivel para novos projetos e oportunidades. Entre em contato para conversarmos sobre como posso ajudar.",
-      "button": "Vamos conversar!"
+      "eyebrow": "Próximo passo",
+      "title": "Tem um problema que merece atenção?",
+      "description": "Respondo pessoalmente em até dois dias úteis. Conversa sem compromisso, sempre.",
+      "button": "Iniciar conversa"
     }
   },
   "about": {
-    "pageTitle": "Sobre",
-    "pageDescription": "Conheca um pouco mais sobre minha trajetoria e experiencia",
+    "eyebrow": "Sobre",
+    "pageTitle": "Tecnologia com lugar e sotaque",
+    "pageDescription": "Engenheiro de software vindo do Alto Solimões, construindo produtos com raiz e precisão técnica.",
     "name": "Marcos Jhollyfer Rodrigues",
-    "role": "Engenheiro de Software",
-    "greeting": "Ola, eu sou o Marcos!",
-    "bio1": "O primeiro Engenheiro de Software Indigena Tikuna da Amazonia. Nasci e cresci na regiao amazonica, e levo essa vivencia unica para cada projeto que desenvolvo, unindo tecnologia e impacto social.",
-    "bio2": "Engenheiro de Software com mais de 5 anos de experiencia no desenvolvimento de aplicacoes web, mobile e backend. Minha paixao pela programacao comecou ainda na adolescencia e desde entao venho aprimorando meus conhecimentos e habilidades tecnicas.",
-    "bio3": "Atualmente, trabalho como desenvolvedor full-stack, criando solucoes completas desde o frontend ate o backend. Tenho experiencia com diversas tecnologias e frameworks modernos, sempre buscando entregar produtos de alta qualidade.",
-    "bio4": "Meu objetivo principal e criar solucoes escalaveis, bem documentadas e de alta qualidade. Gosto de trabalhar em equipe e estou sempre em busca de novos desafios e oportunidades para aprender e crescer profissionalmente.",
-    "mainTech": "Tecnologias principais"
+    "role": "Engenheiro de software full-stack",
+    "bio1": "Nasci na Amazônia e fui o primeiro engenheiro de software indígena Tikuna a sair da minha região. Carrego esse lugar em cada decisão técnica, seja escolhendo uma arquitetura ou uma palavra numa interface.",
+    "bio2": "Nos últimos cinco anos trabalhei de estagiário a tech lead, passando por sistemas corporativos, produtos para clientes B2B e projetos que preservam cultura. Gosto de pequenos times, ciclos curtos e decisões conscientes sobre trade-offs.",
+    "bio3": "Acredito que boa engenharia é silenciosa: código que envelhece bem, interfaces que não chamam atenção para si mesmas e produtos que as pessoas conseguem usar sem precisar aprender. É isso que tento entregar a cada sprint.",
+    "tools": {
+      "eyebrow": "Ferramentas",
+      "languages": "Linguagens",
+      "frameworks": "Frameworks",
+      "infra": "Infra & DevOps"
+    },
+    "cta": "Vamos trabalhar juntos"
   },
   "portfolio": {
-    "pageTitle": "Portfolio",
-    "pageDescription": "Alguns dos projetos que desenvolvi ao longo da minha carreira",
+    "eyebrow": "Portfólio",
+    "pageTitle": "Produtos que já estão no ar",
+    "pageDescription": "Um recorte de projetos em produção, cada um com seu próprio problema e restrição.",
     "filters": {
       "all": "Todos",
       "frontend": "Front-end",
@@ -62,139 +120,178 @@
       "mobile": "Mobile"
     },
     "empty": {
-      "title": "Nenhum projeto encontrado",
-      "description": "Nao encontramos projetos nesta categoria. Tente filtrar por uma categoria diferente."
+      "title": "Nenhum projeto nesse filtro",
+      "description": "Tente uma categoria diferente ou volte ao conjunto completo.",
+      "reset": "Remover filtros"
     },
     "status": {
       "online": "Online",
-      "offline": "Offline"
+      "offline": "Offline",
+      "archived": "Arquivado"
     },
-    "viewProject": "Ver projeto",
-    "viewCode": "Codigo"
+    "card": {
+      "year": "Ano",
+      "role": "Papel",
+      "viewProject": "Abrir projeto",
+      "viewCode": "Ver código",
+      "visit": "Visitar site"
+    },
+    "detail": {
+      "eyebrow": "Estudo de caso",
+      "overview": "Visão geral",
+      "problem": "Problema",
+      "solution": "Solução",
+      "outcome": "Resultado",
+      "highlights": "Destaques",
+      "stack": "Stack",
+      "links": "Links",
+      "backToList": "Voltar ao portfólio",
+      "nextProject": "Próximo projeto",
+      "prevProject": "Projeto anterior"
+    }
   },
   "skills": {
-    "pageTitle": "Tecnologias e Habilidades",
-    "pageDescription": "Ferramentas e tecnologias que utilizo no dia a dia de desenvolvimento",
+    "eyebrow": "Stack",
+    "pageTitle": "Ferramentas que uso no dia a dia",
+    "pageDescription": "Tecnologias nas quais tenho experiência prática, agrupadas por camada.",
     "sections": {
       "frontend": "Front-end",
       "backend": "Back-end",
-      "database": "Banco de Dados",
+      "database": "Dados",
       "mobile": "Mobile",
       "devops": "DevOps"
+    },
+    "levels": {
+      "1": "Familiarizado",
+      "2": "Confortável",
+      "3": "Fluente"
     }
   },
   "career": {
-    "pageTitle": "Trajetoria ate aqui",
-    "pageDescription": "Minha experiencia profissional e formacao academica",
-    "professional": "Area Profissional",
-    "academic": "Academica",
+    "eyebrow": "Carreira",
+    "pageTitle": "Trajetória até aqui",
+    "pageDescription": "Cinco anos construindo produtos, com passagens por times pequenos e corporativos.",
+    "tabs": {
+      "professional": "Profissional",
+      "academic": "Acadêmica"
+    },
     "current": "Atual",
+    "presentLabel": "hoje",
     "experiences": {
       "exp1": {
-        "title": "Desenvolvedor Full Stack - Pleno",
-        "company": "Fundacao RTVE/UFG",
-        "period": "Jan/2025 - Atualmente",
-        "description": "Desenvolvimento de aplicacao de gerenciamento de base de dados, capaz de criar multiplas tabelas e estabelecer relacoes entre os dados de forma dinamica e eficiente"
+        "description": "Construção de aplicação para gerenciamento dinâmico de bases de dados, com criação de múltiplas tabelas e relações arbitrárias em runtime."
       },
       "exp2": {
-        "title": "Desenvolvedor Full Stack - Tech Lead",
-        "company": "Clicksoft",
-        "period": "Setembro/2024 - Dezembro/2024",
-        "description": "Coordenacao de equipes de desenvolvimento, garantindo entregas alinhadas as melhores praticas do mercado. Definicao de arquiteturas de sistemas escalaveis e resilientes para projetos estrategicos"
+        "description": "Coordenação de times de produto definindo arquitetura, padrões e cadência de entrega para projetos estratégicos."
       },
       "exp3": {
-        "title": "Desenvolvedor Full Stack - Pleno",
-        "company": "Clicksoft",
-        "period": "Junho/2023 - Agosto/2024",
-        "description": "Desenvolvimento de sistemas completos para clientes, utilizando React, Node.js e MongoDB. Integracao com APIs de pagamento e implementacao de autenticacao JWT."
+        "description": "Desenvolvimento de sistemas completos para clientes B2B com integração a meios de pagamento e autenticação robusta."
       },
       "exp4": {
-        "title": "Desenvolvedor Full Stack - Junior",
-        "company": "Clicksoft",
-        "period": "Marco/2022 - Maio/2023",
-        "description": "Desenvolvimento de sistemas completos para clientes, utilizando React, Node.js e MongoDB. Integracao com APIs de pagamento e implementacao de autenticacao JWT."
+        "description": "Implementação de features e correção de bugs em produtos web, com foco em qualidade e cobertura de testes."
       },
       "exp5": {
-        "title": "Consultor Fluig - Junior",
-        "company": "Grupo IV2",
-        "period": "Marco/2021 - Fevereiro/2022",
-        "description": "Customizacao e implementacao de solucoes na plataforma Fluig, otimizando processos de gestao empresarial. Automacao de fluxos de trabalho e integracoes entre sistemas ERP e Fluig"
+        "description": "Customização da plataforma Fluig automatizando fluxos de aprovação e integrações com ERPs corporativos."
       },
       "exp6": {
-        "title": "Programador - Pesquisador",
-        "company": "Instituto Federal do Amazonas",
-        "period": "Marco/2021 - Fevereiro/2022",
-        "description": "Pesquisas de solucoes tecnologicas para projetos academicos e pesquisas voltadas para inovacao e impacto social na regiao amazonica."
+        "description": "Pesquisa aplicada em soluções tecnológicas com foco em inovação e impacto social no Alto Solimões."
       }
     },
     "education": {
       "edu1": {
-        "title": "Especialista em Desenvolvimento Full Stack",
-        "company": "Universidade Federal do Amazonas - Web Academy",
-        "period": "2025 - 2026",
-        "description": "Especializacao em desenvolvimento web full stack pelo programa Web Academy (parceria UFAM/Motorola), com enfase em aplicacoes modernas, inteligencia artificial e ciberseguranca."
+        "description": "Programa intensivo com ênfase em aplicações modernas, IA aplicada e cibersegurança."
       },
       "edu2": {
-        "title": "Bacharelado em Engenharia de Software",
-        "company": "Universidade Federal do Amazonas",
-        "period": "2017 - 2022",
-        "description": "Formacao academica em engenharia de software com enfase em desenvolvimento de software, algoritmos e estrutura de dados."
+        "description": "Formação com ênfase em engenharia de software, algoritmos e estruturas de dados."
       },
       "edu3": {
-        "title": "Tecnico em Informatica",
-        "company": "Instituto Federal do Amazonas",
-        "period": "2014 - 2016",
-        "description": "Formacao tecnica em informatica com enfase em programacao e redes de computadores."
+        "description": "Formação técnica com ênfase em programação e redes de computadores."
       }
     }
   },
   "contact": {
-    "pageTitle": "Vamos conversar!",
-    "pageDescription": "Entre em contato para discutirmos seu projeto ou oportunidade de trabalho",
-    "location": "Manaus, AM - Brasil",
+    "eyebrow": "Contato",
+    "pageTitle": "Vamos construir algo juntos",
+    "pageDescription": "Seja para um projeto, uma parceria ou uma conversa técnica, minha caixa de entrada está aberta.",
+    "location": "Manaus, AM — Brasil",
+    "availability": "Disponível para novos projetos",
+    "responseTime": "Resposta em até 48 horas",
+    "channels": {
+      "eyebrow": "Canais diretos",
+      "email": "E-mail",
+      "location": "Localização",
+      "availability": "Disponibilidade",
+      "response": "Tempo de resposta"
+    },
     "formTitle": "Envie uma mensagem",
+    "formDescription": "Conte rapidamente sobre o que você precisa. Eu respondo pessoalmente.",
     "nameLabel": "Nome completo",
-    "namePlaceholder": "Seu nome...",
+    "namePlaceholder": "Seu nome…",
     "emailLabel": "E-mail",
-    "emailPlaceholder": "seu@email.com",
+    "emailPlaceholder": "voce@email.com",
     "messageLabel": "Mensagem",
-    "messagePlaceholder": "Escreva sua mensagem aqui...",
-    "submit": "Enviar mensagem"
+    "messagePlaceholder": "Sobre o que é o projeto, quais os prazos…",
+    "submit": "Enviar mensagem",
+    "submitting": "Enviando…",
+    "success": {
+      "title": "Mensagem enviada",
+      "description": "Obrigado pelo contato. Vou responder em breve.",
+      "another": "Enviar outra"
+    },
+    "errors": {
+      "form": "Revise os campos destacados e tente novamente.",
+      "name": {
+        "tooShort": "Informe seu nome completo.",
+        "tooLong": "Nome muito longo."
+      },
+      "email": {
+        "invalid": "E-mail inválido."
+      },
+      "message": {
+        "tooShort": "Conte um pouco mais — pelo menos 10 caracteres.",
+        "tooLong": "Mensagem muito longa."
+      }
+    }
   },
   "footer": {
-    "copyright": "Jhollyfer Rodrigues",
-    "footerNav": "Navegacao do rodape",
-    "socialNav": "Redes sociais"
+    "copyright": "Jhollyfer Rodrigues. Todos os direitos reservados.",
+    "footerNav": "Navegação do rodapé",
+    "socialNav": "Redes sociais",
+    "tagline": "Engenheiro de software full-stack escrevendo código com raiz amazônica e curadoria técnica.",
+    "status": "Disponível para projetos",
+    "navigate": "Navegação",
+    "elsewhere": "Em outros lugares",
+    "built": "Construído com Next.js 15 · Deploy na Vercel"
   },
   "projects": {
-    "adacaibs": "Site da Associacao de Desenvolvimento Artistico e Cultural da Aldeia Indigena de Belem do Solimoes. Preservacao da cultura Tikuna e conservacao da biodiversidade.",
-    "matiscraft": "Catalogo digital que preserva, documenta e valoriza o artesanato tradicional do povo Matis, conectando historia, identidade e saberes ancestrais.",
-    "manganga": "Site oficial do Boi Bumba Manganga, celebrando mais de 30 anos de tradicao cultural amazonica em Benjamin Constant, o maior festival folclorico do Alto Solimoes."
+    "adacaibs": "Site institucional da Associação de Desenvolvimento Artístico e Cultural da Aldeia Indígena de Belém do Solimões.",
+    "matiscraft": "Catálogo digital que preserva e documenta o artesanato tradicional do povo Matis.",
+    "manganga": "Site oficial do Boi Bumbá Manganga, grupo folclórico amazônico com mais de 30 anos."
   },
   "metadata": {
     "home": {
-      "title": "Jhollyfer | Inicio",
-      "description": "Portfolio de Jhollyfer Rodrigues, o primeiro Engenheiro de Software Indigena Tikuna da Amazonia"
+      "title": "Jhollyfer Rodrigues — Engenheiro de software",
+      "description": "Portfólio de Jhollyfer Rodrigues, engenheiro de software full-stack vindo da Amazônia."
     },
     "about": {
-      "title": "Jhollyfer | Sobre",
-      "description": "Conheca um pouco mais sobre minha trajetoria e experiencia, o primeiro Engenheiro de Software Indigena Tikuna da Amazonia"
+      "title": "Sobre — Jhollyfer Rodrigues",
+      "description": "Trajetória, valores e ferramentas do engenheiro Jhollyfer Rodrigues."
     },
     "portfolio": {
-      "title": "Jhollyfer | Portfolio",
-      "description": "Conheca alguns dos projetos que desenvolvi ao longo da minha carreira"
+      "title": "Portfólio — Jhollyfer Rodrigues",
+      "description": "Projetos selecionados em produção, com problema, solução e resultado."
     },
     "skills": {
-      "title": "Jhollyfer | Habilidades e Tecnologias",
-      "description": "Conheca um pouco mais sobre minhas habilidades e tecnologias que utilizo, o primeiro Engenheiro de Software Indigena Tikuna da Amazonia"
+      "title": "Stack — Jhollyfer Rodrigues",
+      "description": "Ferramentas e tecnologias que uso no dia a dia de engenharia."
     },
     "career": {
-      "title": "Jhollyfer | Carreira",
-      "description": "Conheca um pouco mais sobre minhas experiencias e formacoes, o primeiro Engenheiro de Software Indigena Tikuna da Amazonia"
+      "title": "Carreira — Jhollyfer Rodrigues",
+      "description": "Experiências profissionais e formação acadêmica."
     },
     "contact": {
-      "title": "Jhollyfer | Contato",
-      "description": "Entre em contato com o primeiro Engenheiro de Software Indigena Tikuna da Amazonia"
+      "title": "Contato — Jhollyfer Rodrigues",
+      "description": "Entre em contato para conversar sobre projetos e parcerias."
     }
   }
 }

@@ -1,12 +1,19 @@
 "use client";
-import { Link } from "@/i18n/navigation";
-import { LanguageSwitcher } from "@/components/language-switcher/language-switcher";
-import { GithubIcon, LinkedinIcon, MenuIcon, XIcon } from "lucide-react";
-import { useTranslations } from "next-intl";
-import React from "react";
-import { ActiveLink } from "../active-link/active-link";
 
-const LINK_PATHS = [
+import { AnimatePresence, motion } from "framer-motion";
+import { Github, Linkedin, Menu, X } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { useEffect, useId, useState } from "react";
+
+import { ActiveLink } from "@/components/active-link/active-link";
+import { LanguageSwitcher } from "@/components/language-switcher/language-switcher";
+import { Magnetic } from "@/components/magnetic/magnetic";
+import { ThemeToggle } from "@/components/theme-toggle/theme-toggle";
+import { useScrolled } from "@/hooks/use-scrolled";
+import { Link, usePathname } from "@/i18n/navigation";
+import { cn, focusRing } from "@/lib/utils";
+
+const NAV_LINKS = [
   { key: "home", path: "/" },
   { key: "about", path: "/about" },
   { key: "portfolio", path: "/portfolio" },
@@ -15,109 +22,193 @@ const LINK_PATHS = [
   { key: "contact", path: "/contact" },
 ] as const;
 
-export function Navbar() {
-  const [isOpen, setIsOpen] = React.useState(false);
+const SOCIALS = [
+  {
+    key: "github",
+    href: "https://github.com/jhollyfer",
+    label: "GitHub",
+    Icon: Github,
+  },
+  {
+    key: "linkedin",
+    href: "https://linkedin.com/in/jhollyferr",
+    label: "LinkedIn",
+    Icon: Linkedin,
+  },
+] as const;
+
+export function Navbar(): React.JSX.Element {
+  const [open, setOpen] = useState(false);
   const t = useTranslations("navigation");
+  const scrolled = useScrolled(8);
+  const pathname = usePathname();
+  const drawerId = useId();
+
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!open) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const onKey = (event: KeyboardEvent): void => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = previous;
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
 
   return (
-    <header className="fixed top-0 w-full z-50 border-b border-white/[0.04] bg-background/80 backdrop-blur-xl">
+    <header
+      className={cn(
+        "fixed inset-x-0 top-0 z-50 transition-all duration-500",
+        scrolled
+          ? "border-b border-border bg-background/75 backdrop-blur-xl"
+          : "border-b border-transparent bg-transparent",
+      )}
+    >
       <div className="section-container">
-        <div className="flex justify-between items-center h-16">
-          <ActiveLink href="/" className="font-extrabold tracking-tight">
-            <span className="text-green-400 text-xl">J</span>
-            <span className="text-xl">R</span>
-          </ActiveLink>
+        <div className="flex h-16 items-center justify-between gap-4">
+          <Magnetic strength={6}>
+            <Link
+              href="/"
+              aria-label={t("home")}
+              className={cn(
+                "group/logo inline-flex items-baseline font-semibold tracking-tight",
+                focusRing,
+              )}
+            >
+              <span className="text-xl text-primary">J</span>
+              <span className="text-xl text-foreground">R</span>
+              <span
+                aria-hidden
+                className="ml-2 hidden h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_10px] shadow-primary/60 md:inline-block"
+              />
+            </Link>
+          </Magnetic>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1" aria-label="Menu principal">
-            {LINK_PATHS.map((item) => (
-              <ActiveLink
-                key={item.path}
-                href={item.path}
-                className="px-4 py-2 rounded-md"
-              >
-                {t(item.key)}
-              </ActiveLink>
-            ))}
+          <nav
+            aria-label={t("home")}
+            className="hidden items-center gap-2 md:flex"
+          >
+            <ul className="flex items-center gap-1">
+              {NAV_LINKS.map((item) => (
+                <li key={item.path}>
+                  <ActiveLink
+                    href={item.path}
+                    className="px-3 py-2 text-[0.8125rem]"
+                  >
+                    {t(item.key)}
+                  </ActiveLink>
+                </li>
+              ))}
+            </ul>
           </nav>
 
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden items-center gap-2 md:flex">
+            <ThemeToggle />
             <LanguageSwitcher />
-            <Link
-              href="https://github.com/jhollyfer"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="size-9 flex items-center justify-center rounded-md text-muted-foreground hover:text-foreground hover:bg-white/[0.06] transition-colors duration-200 cursor-pointer"
-              aria-label="GitHub"
-            >
-              <GithubIcon size={18} />
-            </Link>
-            <Link
-              href="https://linkedin.com/in/jhollyferr"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="size-9 flex items-center justify-center rounded-md text-muted-foreground hover:text-foreground hover:bg-white/[0.06] transition-colors duration-200 cursor-pointer"
-              aria-label="LinkedIn"
-            >
-              <LinkedinIcon size={18} />
-            </Link>
+            {SOCIALS.map(({ key, href, label, Icon }) => (
+              <Magnetic key={key} strength={8}>
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className={cn(
+                    "inline-flex size-10 items-center justify-center rounded-full border border-border bg-background/40 text-foreground/80 backdrop-blur transition-colors hover:border-border-strong hover:text-foreground",
+                    focusRing,
+                  )}
+                >
+                  <Icon aria-hidden className="size-4" />
+                </a>
+              </Magnetic>
+            ))}
           </div>
 
-          {/* Mobile Menu Button */}
           <button
-            onClick={() => setIsOpen((state) => !state)}
-            className="md:hidden size-9 flex items-center justify-center rounded-md text-muted-foreground hover:text-foreground hover:bg-white/[0.06] transition-colors duration-200 cursor-pointer"
-            aria-label={isOpen ? t("closeMenu") : t("openMenu")}
-            aria-expanded={isOpen}
-            aria-controls="mobile-nav"
+            type="button"
+            onClick={() => setOpen((state) => !state)}
+            aria-label={open ? t("closeMenu") : t("openMenu")}
+            aria-expanded={open}
+            aria-controls={drawerId}
+            className={cn(
+              "inline-flex size-11 items-center justify-center rounded-full border border-border text-foreground/80 transition-colors hover:border-border-strong hover:text-foreground md:hidden",
+              focusRing,
+            )}
           >
-            {isOpen ? <XIcon size={20} /> : <MenuIcon size={20} />}
+            {open ? (
+              <X aria-hidden className="size-5" />
+            ) : (
+              <Menu aria-hidden className="size-5" />
+            )}
           </button>
         </div>
       </div>
 
-      {/* Mobile Navigation */}
-      {isOpen && (
-        <nav
-          id="mobile-nav"
-          aria-label="Menu principal"
-          className="md:hidden border-t border-white/[0.06] bg-background/95 backdrop-blur-md animate-fade-in"
-        >
-          <div className="section-container py-3 space-y-1">
-            {LINK_PATHS.map((item) => (
-              <ActiveLink
-                onClick={() => setIsOpen(false)}
-                key={item.key}
-                href={item.path}
-                className="block px-3 py-2.5 rounded-md text-base font-medium transition-colors duration-200 hover:bg-white/[0.06]"
-              >
-                {t(item.key)}
-              </ActiveLink>
-            ))}
-          </div>
-          <div className="flex justify-center gap-4 py-4 border-t border-white/[0.06]">
-            <LanguageSwitcher />
-            <Link
-              href="https://github.com/jhollyfer"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="size-9 flex items-center justify-center rounded-md text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer"
-              aria-label="GitHub"
-            >
-              <GithubIcon size={18} />
-            </Link>
-            <Link
-              href="https://linkedin.com/in/jhollyferr"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="size-9 flex items-center justify-center rounded-md text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer"
-              aria-label="LinkedIn"
-            >
-              <LinkedinIcon size={18} />
-            </Link>
-          </div>
-        </nav>
-      )}
+      <AnimatePresence>
+        {open ? (
+          <motion.nav
+            id={drawerId}
+            aria-label={t("home")}
+            aria-modal="true"
+            role="dialog"
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.25, ease: [0.32, 0.72, 0, 1] }}
+            className="md:hidden"
+          >
+            <div className="border-t border-border bg-background/95 backdrop-blur-2xl">
+              <div className="section-container py-6">
+                <ul className="flex flex-col divide-y divide-border">
+                  {NAV_LINKS.map((item) => (
+                    <li key={item.path}>
+                      <ActiveLink
+                        href={item.path}
+                        sharedLayoutId="mobile-nav-active"
+                        className="flex w-full justify-between px-0 py-4 text-base"
+                      >
+                        <span className="flex items-center gap-3">
+                          <span className="kbd">{item.key.slice(0, 2)}</span>
+                          <span>{t(item.key)}</span>
+                        </span>
+                      </ActiveLink>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-6 flex items-center justify-between border-t border-border pt-6">
+                  <div className="flex items-center gap-2">
+                    <ThemeToggle />
+                    <LanguageSwitcher />
+                  </div>
+                  <div className="flex items-center gap-2">
+                    {SOCIALS.map(({ key, href, label, Icon }) => (
+                      <a
+                        key={key}
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={label}
+                        className={cn(
+                          "inline-flex size-10 items-center justify-center rounded-full border border-border text-foreground/80 transition-colors hover:border-border-strong hover:text-foreground",
+                          focusRing,
+                        )}
+                      >
+                        <Icon aria-hidden className="size-4" />
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.nav>
+        ) : null}
+      </AnimatePresence>
     </header>
   );
 }
