@@ -1,11 +1,11 @@
-import type { Education, Experience } from "./types";
+import type { Certification, Education, Experience } from "./types";
 
 export const EXPERIENCES: readonly Experience[] = [
   {
     id: "exp1",
-    role: "Full-stack Developer — Mid-level",
+    role: "Full-stack Developer (Mid-level)",
     company: "Fundação RTVE / UFG",
-    location: "Remoto — Goiânia, BR",
+    location: "Goiânia, GO, BR (remoto)",
     start: "2025-01",
     end: null,
     description:
@@ -19,64 +19,105 @@ export const EXPERIENCES: readonly Experience[] = [
     current: true,
   },
   {
-    id: "exp2",
-    role: "Full-stack Developer — Tech Lead",
-    company: "Clicksoft",
-    location: "Manaus, BR",
-    start: "2024-09",
-    end: "2024-12",
+    id: "expCetam",
+    role: "Instrutor de Tecnologia",
+    company: "CETAM",
+    location: "Benjamin Constant, AM, BR",
+    start: "2025-02",
+    end: null,
     description:
-      "Coordenação de times de produto definindo arquitetura, padrões e cadência de entrega para projetos estratégicos.",
+      "Planejamento e condução de cursos de desenvolvimento web para turmas de até 30 alunos, com ementa em programação, arquitetura de software e boas práticas.",
     highlights: [
-      "Desenho de arquitetura resiliente em 3 frentes simultâneas",
-      "Mentoria técnica e code review sistemáticos",
-      "Redução de lead-time de feature em ~30%",
+      "Turmas de até 30 alunos, +200 horas de instrução",
+      "Conteúdo gamificado com taxa de conclusão >85%",
+      "Mentoria prática em projetos de desenvolvimento web",
     ],
-    techs: ["React", "Node.js", "AdonisJS", "PostgreSQL", "AWS"],
+    techs: ["JavaScript", "TypeScript", "React", "Node.js"],
+    current: true,
+  },
+  {
+    id: "exp2",
+    role: "Full-stack Developer (Tech Lead)",
+    company: "Clicksoft",
+    location: "Rio de Janeiro, RJ, BR",
+    start: "2024-06",
+    end: "2024-11",
+    description:
+      "Liderança técnica de 6 desenvolvedores em 3 projetos estratégicos nos setores de saúde, financeiro e governo.",
+    highlights: [
+      "Liderança de 6 devs em 3 projetos (saúde, financeiro, governo)",
+      "100% das entregas dentro do prazo estabelecido",
+      "Code review, Jest/Supertest e Clean Code reduzindo bugs em ~30%",
+    ],
+    techs: ["React", "Node.js", "AdonisJS", "PostgreSQL", "Jest"],
   },
   {
     id: "exp3",
-    role: "Full-stack Developer — Mid-level",
+    role: "Full-stack Developer (Pleno)",
     company: "Clicksoft",
-    location: "Manaus, BR",
-    start: "2023-06",
-    end: "2024-08",
+    location: "Rio de Janeiro, RJ, BR",
+    start: "2023-01",
+    end: "2024-05",
     description:
-      "Desenvolvimento de sistemas completos para clientes B2B com integração a meios de pagamento e autenticação robusta.",
+      "Desenvolvimento e manutenção de aplicações web para clientes B2B nos setores de saúde, fintech e varejo, com integrações a meios de pagamento e autenticação robusta.",
     highlights: [
-      "Integração com Pagar.me e Stripe",
-      "Auth JWT com refresh rotacionado",
-      "Painéis administrativos com RBAC granular",
+      "4 aplicações web em React, React Native e Node.js",
+      "Integrações com 8+ APIs REST reduzindo falhas em 25%",
+      "Otimização de queries PostgreSQL/MongoDB com ganho de até 50% no tempo de resposta",
+      "Cobertura com Jest e Supertest em módulos críticos",
     ],
-    techs: ["React", "Node.js", "MongoDB", "Express", "Tailwind"],
+    techs: [
+      "React",
+      "React Native",
+      "Node.js",
+      "PostgreSQL",
+      "MongoDB",
+      "Jest",
+    ],
   },
   {
     id: "exp4",
-    role: "Full-stack Developer — Junior",
+    role: "Full-stack Developer (Júnior)",
     company: "Clicksoft",
-    location: "Manaus, BR",
-    start: "2022-03",
-    end: "2023-05",
+    location: "Rio de Janeiro, RJ, BR",
+    start: "2022-07",
+    end: "2022-12",
     description:
-      "Implementação de features e correção de bugs em produtos web, com foco em qualidade e cobertura de testes.",
+      "Implementação de features front-end e back-end em 3 projetos simultâneos para gestão pública e e-commerce.",
     highlights: [
-      "Primeiras contribuições em CI/CD",
-      "Cobertura de testes elevada em módulos críticos",
+      "3 projetos simultâneos (gestão pública e e-commerce)",
+      "Interfaces responsivas em React + TypeScript",
     ],
-    techs: ["React", "Node.js", "MongoDB"],
+    techs: ["React", "TypeScript", "Node.js"],
+  },
+  {
+    id: "expInnovare",
+    role: "Consultor Fluig (Júnior)",
+    company: "Innovare TI",
+    location: "Jundiaí, SP, BR",
+    start: "2022-03",
+    end: "2022-06",
+    description:
+      "Desenvolvimento de widgets customizados em WCM Fluig e integrações com sistemas ERP/CRM externos para clientes corporativos.",
+    highlights: [
+      "10+ widgets WCM Fluig para 3 clientes corporativos",
+      "Integrações REST e Datasets com ERPs/CRMs externos",
+    ],
+    techs: ["Fluig", "JavaScript", "REST", "SOAP"],
   },
   {
     id: "exp5",
-    role: "Fluig Consultant — Junior",
+    role: "Consultor Fluig (Trainee)",
     company: "Grupo IV2",
-    location: "Manaus, BR",
+    location: "Jundiaí, SP, BR",
     start: "2021-03",
     end: "2022-02",
     description:
-      "Customização da plataforma Fluig automatizando fluxos de aprovação e integrações com ERPs corporativos.",
+      "Customização da plataforma Fluig com widgets e integrações, atendendo clientes em diferentes segmentos do ciclo completo de entrega.",
     highlights: [
-      "Automação de processos de compra e RH",
-      "Integrações REST/SOAP com sistemas legados",
+      "15+ widgets customizados atendendo 5 clientes",
+      "4 projetos de implementação end-to-end da plataforma Fluig",
+      "Participação desde levantamento de requisitos até deploy",
     ],
     techs: ["Fluig", "JavaScript", "SOAP", "REST"],
   },
@@ -84,9 +125,9 @@ export const EXPERIENCES: readonly Experience[] = [
     id: "exp6",
     role: "Researcher Programmer",
     company: "Instituto Federal do Amazonas",
-    location: "Tabatinga, BR",
-    start: "2019-03",
-    end: "2020-12",
+    location: "Tabatinga, AM, BR",
+    start: "2015-03",
+    end: "2016-12",
     description:
       "Pesquisa aplicada em soluções tecnológicas com foco em inovação e impacto social no Alto Solimões.",
     highlights: [
@@ -101,8 +142,8 @@ export const EDUCATIONS: readonly Education[] = [
   {
     id: "edu1",
     degree: "Especialização em Desenvolvimento Full-stack",
-    institution: "UFAM — Web Academy (parceria Motorola)",
-    location: "Manaus, BR",
+    institution: "UFAM · Web Academy (parceria Motorola)",
+    location: "Manaus, AM, BR",
     start: "2025",
     end: "2026",
     description:
@@ -112,7 +153,7 @@ export const EDUCATIONS: readonly Education[] = [
     id: "edu2",
     degree: "Bacharelado em Engenharia de Software",
     institution: "Universidade Federal do Amazonas",
-    location: "Manaus, BR",
+    location: "Itacoatiara, AM, BR",
     start: "2017",
     end: "2022",
     description:
@@ -122,10 +163,23 @@ export const EDUCATIONS: readonly Education[] = [
     id: "edu3",
     degree: "Técnico em Informática",
     institution: "Instituto Federal do Amazonas",
-    location: "Tabatinga, BR",
+    location: "Tabatinga, AM, BR",
     start: "2014",
     end: "2016",
     description:
       "Formação técnica com ênfase em programação e redes de computadores.",
+  },
+];
+
+export const CERTIFICATIONS: readonly Certification[] = [
+  {
+    id: "cert1",
+    title: "Formação Node.js",
+    institution: "Rocketseat",
+  },
+  {
+    id: "cert2",
+    title: "Formação React.js",
+    institution: "Rocketseat",
   },
 ];

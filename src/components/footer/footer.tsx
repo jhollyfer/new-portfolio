@@ -138,7 +138,6 @@ export function Footer(): React.JSX.Element {
             <span className="tabular-nums">{year}</span>{" "}
             <span>{tf("copyright")}</span>
           </p>
-          <p className="kbd">{tf("built")}</p>
         </div>
       </div>
     </footer>

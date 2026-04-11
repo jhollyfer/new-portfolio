@@ -68,6 +68,13 @@ export interface Education {
   description: string;
 }
 
+export interface Certification {
+  id: string;
+  title: string;
+  institution: string;
+  year?: string;
+}
+
 /* ---------------- Skills ---------------- */
 export const SKILL_CATEGORIES = [
   "frontend",

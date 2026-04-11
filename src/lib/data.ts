@@ -23,7 +23,13 @@ export const PROJECT_LIST = [
       "i18n PT/EN para alcance internacional",
     ],
     image: "/images/adacaibs.webp",
-    techs: ["React", "AdonisJS", "TanStack Query", "Tailwind CSS", "PostgreSQL"],
+    techs: [
+      "React",
+      "AdonisJS",
+      "TanStack Query",
+      "Tailwind CSS",
+      "PostgreSQL",
+    ],
     category: "frontend",
     status: "online",
     featured: true,
@@ -35,7 +41,7 @@ export const PROJECT_LIST = [
     id: "2",
     slug: "matiscraft",
     title: "MatisCraft",
-    year: 2024,
+    year: 2026,
     role: "Full-stack developer",
     description:
       "Catálogo digital que preserva, documenta e valoriza o artesanato tradicional do povo Matis, conectando história, identidade e saberes ancestrais.",

@@ -89,9 +89,9 @@ export function Hero(): React.JSX.Element {
           </div>
 
           <aside className="col-span-12 flex flex-col justify-between gap-12 md:col-span-4 md:items-end md:text-right">
-            <div className="flex flex-col gap-2">
+            {/* <div className="flex flex-col gap-2">
               <p className="kbd">{t("basedIn")}</p>
-            </div>
+            </div> */}
 
             <div className="flex items-center gap-3 md:justify-end">
               {SOCIALS.map(({ key, href, label, Icon }) => (

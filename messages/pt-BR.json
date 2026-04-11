@@ -11,7 +11,7 @@
     "skipToContent": "Pular para o conteúdo"
   },
   "theme": {
-    "toggle": "Alternar tema — atual: {mode}",
+    "toggle": "Alternar tema · atual: {mode}",
     "light": "Claro",
     "dark": "Escuro",
     "system": "Sistema"
@@ -35,8 +35,8 @@
     "downloadCV": "Baixar CV",
     "letsChat": "Vamos conversar",
     "scrollHint": "Role para explorar",
-    "basedIn": "Baseado em Manaus · AM",
-    "lastUpdate": "Atualizado · mar 2026"
+    "basedIn": "Tríplice Fronteira · Brasil, Peru, Colômbia",
+    "lastUpdate": "Atualizado · abr 2026"
   },
   "home": {
     "aboutSnippet": {
@@ -96,7 +96,7 @@
     "eyebrow": "Sobre",
     "pageTitle": "Tecnologia com lugar e sotaque",
     "pageDescription": "Engenheiro de software vindo do Alto Solimões, construindo produtos com raiz e precisão técnica.",
-    "name": "Marcos Jhollyfer Rodrigues",
+    "name": "Jhollyfer Rodrigues",
     "role": "Engenheiro de software full-stack",
     "bio1": "Nasci na Amazônia e fui o primeiro engenheiro de software indígena Tikuna a sair da minha região. Carrego esse lugar em cada decisão técnica, seja escolhendo uma arquitetura ou uma palavra numa interface.",
     "bio2": "Nos últimos cinco anos trabalhei de estagiário a tech lead, passando por sistemas corporativos, produtos para clientes B2B e projetos que preservam cultura. Gosto de pequenos times, ciclos curtos e decisões conscientes sobre trade-offs.",
@@ -173,7 +173,8 @@
     "pageDescription": "Cinco anos construindo produtos, com passagens por times pequenos e corporativos.",
     "tabs": {
       "professional": "Profissional",
-      "academic": "Acadêmica"
+      "academic": "Acadêmica",
+      "certifications": "Certificações"
     },
     "current": "Atual",
     "presentLabel": "hoje",
@@ -181,17 +182,23 @@
       "exp1": {
         "description": "Construção de aplicação para gerenciamento dinâmico de bases de dados, com criação de múltiplas tabelas e relações arbitrárias em runtime."
       },
+      "expCetam": {
+        "description": "Planejamento e condução de cursos de desenvolvimento web para turmas de até 30 alunos, com ementa em programação, arquitetura de software e boas práticas."
+      },
       "exp2": {
-        "description": "Coordenação de times de produto definindo arquitetura, padrões e cadência de entrega para projetos estratégicos."
+        "description": "Liderança técnica de 6 desenvolvedores em 3 projetos estratégicos nos setores de saúde, financeiro e governo."
       },
       "exp3": {
-        "description": "Desenvolvimento de sistemas completos para clientes B2B com integração a meios de pagamento e autenticação robusta."
+        "description": "Desenvolvimento e manutenção de aplicações web para clientes B2B nos setores de saúde, fintech e varejo, com integrações a meios de pagamento e autenticação robusta."
       },
       "exp4": {
-        "description": "Implementação de features e correção de bugs em produtos web, com foco em qualidade e cobertura de testes."
+        "description": "Implementação de features front-end e back-end em 3 projetos simultâneos para gestão pública e e-commerce."
+      },
+      "expInnovare": {
+        "description": "Desenvolvimento de widgets customizados em WCM Fluig e integrações REST/Dataset com sistemas ERP/CRM externos para clientes corporativos."
       },
       "exp5": {
-        "description": "Customização da plataforma Fluig automatizando fluxos de aprovação e integrações com ERPs corporativos."
+        "description": "Customização da plataforma Fluig com widgets e integrações, atendendo clientes em diferentes segmentos do ciclo completo de entrega."
       },
       "exp6": {
         "description": "Pesquisa aplicada em soluções tecnológicas com foco em inovação e impacto social no Alto Solimões."
@@ -207,13 +214,21 @@
       "edu3": {
         "description": "Formação técnica com ênfase em programação e redes de computadores."
       }
+    },
+    "certifications": {
+      "cert1": {
+        "description": "Formação aprofundada em Node.js cobrindo APIs REST, autenticação, testes e padrões de back-end em produção."
+      },
+      "cert2": {
+        "description": "Formação prática em React moderno, hooks, gerenciamento de estado e arquitetura de componentes em produção."
+      }
     }
   },
   "contact": {
     "eyebrow": "Contato",
     "pageTitle": "Vamos construir algo juntos",
     "pageDescription": "Seja para um projeto, uma parceria ou uma conversa técnica, minha caixa de entrada está aberta.",
-    "location": "Manaus, AM — Brasil",
+    "location": "Tríplice Fronteira · Brasil, Peru, Colômbia",
     "availability": "Disponível para novos projetos",
     "responseTime": "Resposta em até 48 horas",
     "channels": {
@@ -260,8 +275,7 @@
     "tagline": "Engenheiro de software full-stack escrevendo código com raiz amazônica e curadoria técnica.",
     "status": "Disponível para projetos",
     "navigate": "Navegação",
-    "elsewhere": "Em outros lugares",
-    "built": "Construído com Next.js 15 · Deploy na Vercel"
+    "elsewhere": "Em outros lugares"
   },
   "projects": {
     "adacaibs": "Site institucional da Associação de Desenvolvimento Artístico e Cultural da Aldeia Indígena de Belém do Solimões.",
@@ -270,27 +284,27 @@
   },
   "metadata": {
     "home": {
-      "title": "Jhollyfer Rodrigues — Engenheiro de software",
+      "title": "Jhollyfer Rodrigues · Engenheiro de software",
       "description": "Portfólio de Jhollyfer Rodrigues, engenheiro de software full-stack vindo da Amazônia."
     },
     "about": {
-      "title": "Sobre — Jhollyfer Rodrigues",
+      "title": "Sobre · Jhollyfer Rodrigues",
       "description": "Trajetória, valores e ferramentas do engenheiro Jhollyfer Rodrigues."
     },
     "portfolio": {
-      "title": "Portfólio — Jhollyfer Rodrigues",
+      "title": "Portfólio · Jhollyfer Rodrigues",
       "description": "Projetos selecionados em produção, com problema, solução e resultado."
     },
     "skills": {
-      "title": "Stack — Jhollyfer Rodrigues",
+      "title": "Stack · Jhollyfer Rodrigues",
       "description": "Ferramentas e tecnologias que uso no dia a dia de engenharia."
     },
     "career": {
-      "title": "Carreira — Jhollyfer Rodrigues",
+      "title": "Carreira · Jhollyfer Rodrigues",
       "description": "Experiências profissionais e formação acadêmica."
     },
     "contact": {
-      "title": "Contato — Jhollyfer Rodrigues",
+      "title": "Contato · Jhollyfer Rodrigues",
       "description": "Entre em contato para conversar sobre projetos e parcerias."
     }
   }

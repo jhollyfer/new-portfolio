@@ -70,5 +70,5 @@ export function formatPeriod(
 ): string {
   const startLabel = formatMonth(start, locale);
   const endLabel = end ? formatMonth(end, locale) : currentLabel;
-  return `${startLabel} — ${endLabel}`;
+  return `${startLabel} - ${endLabel}`;
 }

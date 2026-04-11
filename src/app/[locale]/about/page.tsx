@@ -13,16 +13,23 @@ interface Props {
 }
 
 const TOOLING = {
-  languages: ["TypeScript", "JavaScript", "Python", "SQL"],
+  languages: ["TypeScript", "JavaScript"],
   frameworks: [
     "Next.js",
     "React",
-    "Node.js",
-    "Express",
-    "AdonisJS",
     "React Native",
+    "TanStack Start",
+    "TanStack Router",
+    "TanStack Query",
+    "TanStack Form",
+    "TanStack Table",
+    "Node.js",
+    "Fastify",
+    "AdonisJS",
+    "NestJS",
+    "Express",
   ],
-  infra: ["Docker", "PostgreSQL", "MongoDB", "Redis", "AWS", "Vercel"],
+  infra: ["Docker", "PostgreSQL", "MongoDB", "Redis", "Prisma", "AWS", "Vercel"],
 } as const;
 
 export async function generateMetadata({

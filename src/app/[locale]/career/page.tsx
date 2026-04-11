@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { ScrollReveal } from "@/components/scroll-reveal/scroll-reveal";
-import { EDUCATIONS, EXPERIENCES } from "@/lib/career";
+import { CERTIFICATIONS, EDUCATIONS, EXPERIENCES } from "@/lib/career";
 import { CareerTabs } from "@/templates/career/components/career-tabs/career-tabs";
+import { CertificationCard } from "@/templates/career/components/certification-card/certification-card";
 import { EducationCard } from "@/templates/career/components/education-card/education-card";
 import { ExperienceCard } from "@/templates/career/components/experience-card/experience-card";
 
@@ -62,6 +63,19 @@ export default async function CareerPage({
     </ol>
   );
 
+  const certifications = (
+    <ol className="flex flex-col gap-6">
+      {CERTIFICATIONS.map((certification, index) => (
+        <ScrollReveal as="li" key={certification.id} delay={index * 70}>
+          <CertificationCard
+            certification={certification}
+            descriptionKey={`career.certifications.${certification.id}.description`}
+          />
+        </ScrollReveal>
+      ))}
+    </ol>
+  );
+
   return (
     <div className="pt-36 pb-24">
       <div className="section-container">
@@ -78,7 +92,11 @@ export default async function CareerPage({
         </header>
 
         <ScrollReveal delay={240}>
-          <CareerTabs professional={professional} academic={academic} />
+          <CareerTabs
+            professional={professional}
+            academic={academic}
+            certifications={certifications}
+          />
         </ScrollReveal>
       </div>
     </div>

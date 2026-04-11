@@ -11,7 +11,7 @@
     "skipToContent": "Skip to content"
   },
   "theme": {
-    "toggle": "Switch theme — current: {mode}",
+    "toggle": "Switch theme · current: {mode}",
     "light": "Light",
     "dark": "Dark",
     "system": "System"
@@ -35,8 +35,8 @@
     "downloadCV": "Download CV",
     "letsChat": "Let's talk",
     "scrollHint": "Scroll to explore",
-    "basedIn": "Based in Manaus · AM",
-    "lastUpdate": "Updated · mar 2026"
+    "basedIn": "Triple Frontier · Brazil, Peru, Colombia",
+    "lastUpdate": "Updated · apr 2026"
   },
   "home": {
     "aboutSnippet": {
@@ -96,7 +96,7 @@
     "eyebrow": "About",
     "pageTitle": "Engineering with roots",
     "pageDescription": "A full-stack software engineer from the Upper Solimões, building products with craft and precision.",
-    "name": "Marcos Jhollyfer Rodrigues",
+    "name": "Jhollyfer Rodrigues",
     "role": "Full-stack software engineer",
     "bio1": "I was born in the Amazon and I'm the first Indigenous Tikuna software engineer to leave my region. That place shows up in every technical decision I make — from an architecture to a single word in an interface.",
     "bio2": "Over the last five years I've moved from intern to tech lead across corporate systems, B2B products and cultural preservation work. I like small teams, short cycles and conscious decisions about trade-offs.",
@@ -173,7 +173,8 @@
     "pageDescription": "Five years building products across small teams and corporate work.",
     "tabs": {
       "professional": "Professional",
-      "academic": "Academic"
+      "academic": "Academic",
+      "certifications": "Certifications"
     },
     "current": "Current",
     "presentLabel": "today",
@@ -181,17 +182,23 @@
       "exp1": {
         "description": "Building an application for dynamic database management, creating multiple tables and arbitrary relationships at runtime."
       },
+      "expCetam": {
+        "description": "Planning and delivering web development courses to classes of up to 30 students, with a curriculum covering programming, software architecture and best practices."
+      },
       "exp2": {
-        "description": "Leading product teams: architecture, standards and delivery cadence for strategic projects."
+        "description": "Technical leadership of 6 developers across 3 strategic projects in healthcare, finance and government."
       },
       "exp3": {
-        "description": "Shipping full-stack systems for B2B clients with payment gateway integration and hardened authentication."
+        "description": "Shipping web applications for B2B clients in healthcare, fintech and retail, with payment integrations and hardened authentication."
       },
       "exp4": {
-        "description": "Shipping features and fixing bugs across web products, focusing on quality and test coverage."
+        "description": "Implementing front-end and back-end features across 3 concurrent projects for public sector and e-commerce."
+      },
+      "expInnovare": {
+        "description": "Custom WCM widgets on the Fluig platform and REST/Dataset integrations with external ERP and CRM systems."
       },
       "exp5": {
-        "description": "Customizing the Fluig platform, automating approval flows and integrating with corporate ERPs."
+        "description": "Customizing the Fluig platform with widgets and integrations, delivering end-to-end across multiple client segments."
       },
       "exp6": {
         "description": "Applied research in technology solutions with a focus on innovation and social impact in the Upper Solimões."
@@ -207,13 +214,21 @@
       "edu3": {
         "description": "Technical training with emphasis on programming and computer networks."
       }
+    },
+    "certifications": {
+      "cert1": {
+        "description": "In-depth bootcamp covering Node.js fundamentals, REST APIs, authentication and real-world backend patterns."
+      },
+      "cert2": {
+        "description": "Hands-on training on modern React, hooks, state management and production-ready component architecture."
+      }
     }
   },
   "contact": {
     "eyebrow": "Contact",
     "pageTitle": "Let's build something together",
     "pageDescription": "For a project, a partnership or a technical conversation — my inbox is open.",
-    "location": "Manaus, AM — Brazil",
+    "location": "Triple Frontier · Brazil, Peru, Colombia",
     "availability": "Available for new projects",
     "responseTime": "Reply within 48 hours",
     "channels": {
@@ -260,8 +275,7 @@
     "tagline": "Full-stack software engineer writing code with Amazonian roots and technical craft.",
     "status": "Available for projects",
     "navigate": "Navigate",
-    "elsewhere": "Elsewhere",
-    "built": "Built with Next.js 15 · Deployed on Vercel"
+    "elsewhere": "Elsewhere"
   },
   "projects": {
     "adacaibs": "Institutional site for the Artistic and Cultural Development Association of Belém do Solimões.",
@@ -270,27 +284,27 @@
   },
   "metadata": {
     "home": {
-      "title": "Jhollyfer Rodrigues — Software engineer",
+      "title": "Jhollyfer Rodrigues · Software engineer",
       "description": "Portfolio of Jhollyfer Rodrigues, a full-stack software engineer from the Amazon."
     },
     "about": {
-      "title": "About — Jhollyfer Rodrigues",
+      "title": "About · Jhollyfer Rodrigues",
       "description": "Path, values and tools of software engineer Jhollyfer Rodrigues."
     },
     "portfolio": {
-      "title": "Portfolio — Jhollyfer Rodrigues",
+      "title": "Portfolio · Jhollyfer Rodrigues",
       "description": "Selected products in production, with problem, solution and outcome."
     },
     "skills": {
-      "title": "Stack — Jhollyfer Rodrigues",
+      "title": "Stack · Jhollyfer Rodrigues",
       "description": "Tools and technologies I use day to day in engineering."
     },
     "career": {
-      "title": "Career — Jhollyfer Rodrigues",
+      "title": "Career · Jhollyfer Rodrigues",
       "description": "Professional experience and academic background."
     },
     "contact": {
-      "title": "Contact — Jhollyfer Rodrigues",
+      "title": "Contact · Jhollyfer Rodrigues",
       "description": "Reach out to talk about projects and partnerships."
     }
   }
