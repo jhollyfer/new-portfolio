@@ -13,6 +13,6 @@ jobs:
       - name: Deploy App to Coolify
         run: |
           curl -s -X GET \
-            "https://coolify.maiyu.com.br/api/v1/deploy?uuid=REPLACE_ME&force=false" \
+            "https://coolify.maiyu.com.br/api/v1/deploy?uuid=kd2v2ust5csfaaa6sjsjqegk&force=false" \
             -H "Authorization: Bearer ${{ secrets.COOLIFY_TOKEN }}" \
             -H "Content-Type: application/json"
