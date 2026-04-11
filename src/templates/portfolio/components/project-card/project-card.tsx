@@ -44,7 +44,9 @@ export function ProjectCard({
           <div
             className={cn(
               "relative w-full overflow-hidden bg-muted/40",
-              featured ? "aspect-[16/9]" : "aspect-[16/10]",
+              featured
+                ? "aspect-[4/3] sm:aspect-[16/9]"
+                : "aspect-[4/3] sm:aspect-[16/10]",
             )}
           >
             <Image

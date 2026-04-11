@@ -80,7 +80,7 @@ export default async function ProjectDetailPage({
               </p>
             </ScrollReveal>
           </div>
-          <aside className="col-span-12 grid grid-cols-2 gap-6 md:col-span-4 md:grid-cols-1">
+          <aside className="col-span-12 flex flex-col gap-6 md:col-span-4">
             <ScrollReveal delay={120}>
               <dl className="flex flex-col gap-1">
                 <dt className="kbd">Year</dt>

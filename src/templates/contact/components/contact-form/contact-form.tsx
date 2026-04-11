@@ -112,7 +112,7 @@ export function ContactForm(): React.JSX.Element {
   if (state.status === "success") {
     return (
       <div className="bezel-shell">
-        <div className="bezel-core flex flex-col items-start gap-6 p-8 md:p-10">
+        <div className="bezel-core flex flex-col items-start gap-6 p-5 sm:p-6 md:p-8 lg:p-10">
           <span className="section-badge">
             <CheckCircle2 aria-hidden className="size-5" />
           </span>
@@ -141,7 +141,7 @@ export function ContactForm(): React.JSX.Element {
 
   return (
     <div className="bezel-shell">
-      <div className="bezel-core p-8 md:p-10">
+      <div className="bezel-core p-5 sm:p-6 md:p-8 lg:p-10">
         <header className="mb-8 flex flex-col gap-2">
           <h2 className="text-2xl font-semibold tracking-tight">
             {t("formTitle")}

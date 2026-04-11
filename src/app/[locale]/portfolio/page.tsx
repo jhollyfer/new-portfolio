@@ -66,13 +66,13 @@ export default async function PortfolioPage({
         </header>
 
         <ScrollReveal>
-          <div className="mb-12 -mx-6 overflow-x-auto px-6 md:mx-0 md:px-0">
+          <div className="mb-12">
             <Suspense
               fallback={
                 <div className="h-10 animate-pulse rounded-full bg-[var(--bezel-shell-bg)]" />
               }
             >
-              <div className="flex w-max items-center gap-2 md:w-auto md:flex-wrap">
+              <div className="flex flex-wrap items-center gap-2">
                 {PROJECT_CATEGORIES.map((filter) => (
                   <FilterButton
                     key={filter}

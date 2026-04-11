@@ -72,10 +72,10 @@ export default async function AboutPage({
           </ScrollReveal>
         </header>
 
-        <section className="grid grid-cols-12 gap-10">
+        <section className="grid grid-cols-12 gap-8 md:gap-10">
           <div className="col-span-12 md:col-span-5">
             <ScrollReveal>
-              <div className="bezel-shell sticky top-28">
+              <div className="bezel-shell md:sticky md:top-28">
                 <div className="bezel-core relative aspect-[4/5] overflow-hidden">
                   <Image
                     src="https://avatars.githubusercontent.com/u/67079657?v=4"
@@ -103,7 +103,7 @@ export default async function AboutPage({
           <article className="col-span-12 md:col-span-7">
             <div className="space-y-6 text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
               <ScrollReveal>
-                <p className="first-letter:mr-1 first-letter:float-left first-letter:font-serif first-letter:text-5xl first-letter:font-semibold first-letter:text-foreground first-letter:leading-none">
+                <p className="first-letter:mr-1 first-letter:float-left first-letter:font-serif first-letter:text-3xl first-letter:font-semibold first-letter:text-foreground first-letter:leading-none sm:first-letter:text-4xl md:first-letter:text-5xl">
                   {t("bio1")}
                 </p>
               </ScrollReveal>

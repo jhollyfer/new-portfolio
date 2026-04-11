@@ -24,7 +24,7 @@ export function Hero(): React.JSX.Element {
   const t = useTranslations("hero");
 
   return (
-    <section className="relative flex min-h-[100dvh] items-center pt-28 pb-24">
+    <section className="relative flex min-h-[100dvh] items-center pt-20 pb-16 md:pt-28 md:pb-24">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-[1] overflow-hidden"
@@ -33,7 +33,7 @@ export function Hero(): React.JSX.Element {
       </div>
 
       <div className="section-container relative z-[1]">
-        <div className="grid grid-cols-12 gap-y-12">
+        <div className="grid grid-cols-12 gap-y-10 md:gap-y-12">
           <div className="col-span-12 flex flex-col justify-between md:col-span-8">
             <div className="flex items-center gap-3">
               <span className="relative inline-flex size-2">

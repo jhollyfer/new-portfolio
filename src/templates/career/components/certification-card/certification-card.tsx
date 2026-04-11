@@ -16,13 +16,13 @@ export function CertificationCard({
 
   return (
     <article className="bezel-shell">
-      <div className="bezel-core grid grid-cols-12 gap-6 p-6 md:p-8">
-        <div className="col-span-12 flex items-start justify-between gap-4 md:col-span-3 md:flex-col md:gap-3">
+      <div className="bezel-core flex flex-col gap-5 p-5 sm:p-6 md:grid md:grid-cols-12 md:gap-6 md:p-8">
+        <div className="flex flex-wrap items-start justify-between gap-3 md:col-span-3 md:flex-col md:gap-3">
           {certification.year ? (
             <span className="kbd whitespace-nowrap">{certification.year}</span>
           ) : null}
         </div>
-        <div className="col-span-12 flex flex-col gap-3 md:col-span-9">
+        <div className="flex flex-col gap-3 md:col-span-9">
           <header className="flex flex-col gap-1">
             <h3 className="text-lg font-semibold tracking-tight">
               {certification.title}

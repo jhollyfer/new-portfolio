@@ -11,11 +11,11 @@ export function CtaFinal(): React.JSX.Element {
   const t = useTranslations("home.cta");
 
   return (
-    <section className="py-24 md:py-32">
+    <section className="py-20 md:py-32">
       <div className="section-container">
         <ScrollReveal>
           <SpotlightCard className="p-0">
-            <div className="relative flex flex-col items-start gap-10 p-10 md:p-20">
+            <div className="relative flex flex-col items-start gap-8 p-6 sm:p-10 md:gap-10 md:p-20">
               <p className="kbd">{t("eyebrow")}</p>
               <h2 className="max-w-3xl text-display">{t("title")}</h2>
               <p className="max-w-xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
